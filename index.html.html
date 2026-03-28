@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Glow Plan — Diet, Resep, Olahraga</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<title>Nourish — Makan Sehat untuk Semua</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 :root {
   --cream: #FAF8F3;
@@ -35,12 +35,23 @@
   --radius: 14px;
   --radius-sm: 8px;
   --radius-xs: 5px;
+
+  /* Budget colors */
+  --hemat: #4A7C59;
+  --hemat-light: #C8DFC8;
+  --hemat-pale: #EAF3EA;
+  --menengah: #B87A20;
+  --menengah-light: #F5E8CC;
+  --menengah-pale: #FDF8EE;
+  --leluasa: #3A6B9F;
+  --leluasa-light: #D8E8F5;
+  --leluasa-pale: #EFF6FC;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Jost', sans-serif;
   background: var(--cream);
   color: var(--text);
   min-height: 100vh;
@@ -49,8 +60,8 @@ body {
 
 /* ── HEADER ── */
 .header {
-  background: linear-gradient(135deg, #3D6B4A 0%, #2D5238 60%, #1E3D28 100%);
-  padding: 2.5rem 1.5rem 1.75rem;
+  background: linear-gradient(150deg, #2D5238 0%, #3D6B4A 50%, #4A7C59 100%);
+  padding: 2.75rem 1.5rem 2rem;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -58,54 +69,56 @@ body {
 .header::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  top: -50px; right: -50px;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+  pointer-events: none;
+}
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -70px; left: -40px;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.025);
   pointer-events: none;
 }
 .header-eyebrow {
   font-size: 10px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.4);
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 .header h1 {
-  font-family: 'Fraunces', serif;
-  font-size: 2.6rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.2rem;
   font-weight: 300;
   color: #F5F0E8;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   line-height: 1.1;
 }
 .header h1 em {
   font-style: italic;
   color: #A8D8B0;
-  font-weight: 300;
 }
 .header-sub {
   font-size: 12px;
   color: rgba(255,255,255,0.45);
   margin-top: 10px;
   font-weight: 300;
-  letter-spacing: 0.04em;
-}
-.header-badges {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  margin-top: 14px;
-  flex-wrap: wrap;
-}
-.header-badge {
-  font-size: 10px;
-  font-weight: 600;
   letter-spacing: 0.06em;
-  padding: 4px 10px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.7);
-  border: 1px solid rgba(255,255,255,0.15);
+}
+.header-tagline {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
 }
 
 /* ── MAIN NAV ── */
@@ -119,9 +132,9 @@ body {
 .main-nav::-webkit-scrollbar { display: none; }
 .main-nav-btn {
   flex: 1;
-  min-width: 90px;
+  min-width: 80px;
   padding: 13px 10px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Jost', sans-serif;
   font-size: 12px;
   font-weight: 500;
   color: rgba(255,255,255,0.45);
@@ -131,7 +144,6 @@ body {
   border-bottom: 2px solid transparent;
   transition: all 0.2s;
   white-space: nowrap;
-  letter-spacing: 0.02em;
 }
 .main-nav-btn:hover { color: rgba(255,255,255,0.75); }
 .main-nav-btn.active {
@@ -141,27 +153,131 @@ body {
 
 /* ── CONTENT ── */
 .content { max-width: 720px; margin: 0 auto; padding: 1.75rem 1rem 5rem; }
-
 .section { display: none; }
 .section.active { display: block; }
 
 /* ── SECTION HEADER ── */
-.section-header { margin-bottom: 1.5rem; }
 .section-title {
-  font-family: 'Fraunces', serif;
-  font-size: 1.6rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
   font-weight: 400;
   color: var(--text);
   letter-spacing: -0.01em;
   line-height: 1.2;
+  margin-bottom: 4px;
 }
 .section-title em { font-style: italic; color: var(--sage); }
 .section-sub {
   font-size: 13px;
   color: var(--text-muted);
-  margin-top: 6px;
+  margin-bottom: 1.5rem;
   line-height: 1.7;
 }
+
+/* ── BUDGET CONFIGURATOR ── */
+.budget-config {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.budget-config-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 12px;
+}
+.budget-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.budget-people {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 160px;
+}
+.budget-people label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+.people-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.people-btn {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--cream);
+  cursor: pointer;
+  font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-muted);
+  transition: all 0.15s;
+  font-family: 'Jost', sans-serif;
+}
+.people-btn:hover { border-color: var(--sage-mid); color: var(--sage); }
+.people-count {
+  font-size: 18px;
+  font-weight: 600;
+  min-width: 24px;
+  text-align: center;
+  color: var(--text);
+}
+.budget-tiers {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+.budget-tier {
+  flex: 1;
+  min-width: 100px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--border);
+  cursor: pointer;
+  transition: all 0.15s;
+  background: transparent;
+  font-family: 'Jost', sans-serif;
+  text-align: left;
+}
+.budget-tier:hover { border-color: var(--border); background: var(--cream); }
+.budget-tier.active-hemat { border-color: var(--hemat); background: var(--hemat-pale); }
+.budget-tier.active-menengah { border-color: var(--menengah); background: var(--menengah-pale); }
+.budget-tier.active-leluasa { border-color: var(--leluasa); background: var(--leluasa-pale); }
+.tier-name {
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 3px;
+}
+.tier-price {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+.tier-total {
+  font-size: 10px;
+  font-weight: 600;
+  margin-top: 4px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  display: inline-block;
+}
+.total-hemat { background: var(--hemat-light); color: var(--hemat); }
+.total-menengah { background: var(--menengah-light); color: var(--menengah); }
+.total-leluasa { background: var(--leluasa-light); color: var(--leluasa); }
 
 /* ── WEEK TABS ── */
 .week-tabs {
@@ -177,20 +293,20 @@ body {
   background: transparent;
   cursor: pointer;
   font-size: 12px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Jost', sans-serif;
   font-weight: 500;
   color: var(--text-muted);
   transition: all 0.15s;
 }
-.week-tab.active {
-  background: var(--sage);
-  color: #F5F0E8;
-  border-color: transparent;
-}
+.week-tab.active { background: var(--sage); color: #F5F0E8; border-color: transparent; }
 .week-panel { display: none; }
 .week-panel.active { display: block; }
 
-/* ── PHASE BANNER ── */
+/* ── BUDGET PANEL ── */
+.budget-panel { display: none; }
+.budget-panel.active { display: block; }
+
+/* ── PHASE / PROGRESS ── */
 .phase-label {
   font-size: 10px;
   font-weight: 600;
@@ -199,10 +315,21 @@ body {
   color: var(--text-faint);
   margin: 1.5rem 0 8px;
 }
+.progress-row {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 1.25rem;
+}
+.progress-pill {
+  font-size: 11px; font-weight: 600;
+  padding: 3px 10px; border-radius: 20px;
+  white-space: nowrap;
+}
+.progress-track { flex: 1; height: 4px; background: var(--border); border-radius: 20px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 20px; background: var(--sage); }
+
+/* ── PHASE BANNER ── */
 .phase-banner {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  display: flex; align-items: center; gap: 10px;
   padding: 11px 14px;
   background: var(--cream-dark);
   border-radius: var(--radius-sm);
@@ -213,763 +340,973 @@ body {
 .phase-title { font-size: 13px; font-weight: 600; flex: 1; }
 .phase-meta { font-size: 11px; color: var(--text-muted); white-space: nowrap; }
 
-/* ── PROGRESS ── */
-.progress-row { display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; }
-.phase-pill {
-  font-size: 11px;
-  font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 20px;
-  white-space: nowrap;
-  font-family: 'DM Sans', sans-serif;
+/* ── CALLOUT ── */
+.callout {
+  padding: 11px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  line-height: 1.75;
+  margin-bottom: 10px;
 }
-.progress-track { flex: 1; height: 4px; background: var(--border); border-radius: 20px; overflow: hidden; }
-.progress-fill { height: 100%; border-radius: 20px; background: var(--sage); }
+.callout strong { font-weight: 600; }
+.callout-sage  { background: var(--sage-pale); color: #3A6040; border: 1px solid var(--sage-light); }
+.callout-amber { background: var(--amber-pale); color: #7A5010; border: 1px solid var(--amber-light); }
+.callout-blue  { background: var(--blue-pale); color: var(--blue); border: 1px solid var(--blue-light); }
+.callout-coral { background: var(--coral-pale); color: var(--coral); border: 1px solid var(--coral-light); }
+.callout-plum  { background: var(--plum-pale); color: var(--plum); border: 1px solid var(--plum-light); }
+
+/* ── DAY PLAN ── */
+.day-plan { margin-bottom: 1rem; }
+.day-header {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px;
+  background: var(--cream-dark);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  border: 1px solid var(--border);
+  border-bottom: none;
+}
+.day-name { font-size: 13px; font-weight: 600; flex: 1; }
+.day-badge {
+  font-size: 10px; font-weight: 600;
+  padding: 2px 8px; border-radius: 20px;
+}
+.day-meals {
+  border: 1px solid var(--border);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  overflow: hidden;
+  background: var(--white);
+}
+.meal-row {
+  display: flex; gap: 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.meal-row:last-child { border-bottom: none; }
+.meal-time-col {
+  min-width: 80px;
+  padding: 10px 12px;
+  background: var(--cream);
+  border-right: 1px solid var(--border-light);
+  font-size: 10px;
+  color: var(--text-faint);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.meal-content { flex: 1; padding: 10px 14px; }
+.meal-name { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+.meal-detail { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+.meal-family-note {
+  font-size: 10px;
+  color: var(--sage);
+  margin-top: 4px;
+  display: flex; gap: 4px; align-items: flex-start;
+}
+.meal-family-note::before { content: "👨‍👩‍👧"; font-size: 10px; flex-shrink: 0; }
 
 /* ── CARD GRID ── */
-.opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; }
-.opt-card {
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; margin-bottom: 10px; }
+.card {
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 14px;
 }
-.opt-tag {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 600;
-  padding: 2px 8px;
-  border-radius: 20px;
-  margin-bottom: 6px;
-  letter-spacing: 0.04em;
+.card-tag {
+  display: inline-block; font-size: 10px; font-weight: 600;
+  padding: 2px 8px; border-radius: 20px;
+  margin-bottom: 6px; letter-spacing: 0.04em;
 }
-.tag-a { background: var(--blue-light); color: var(--blue); }
-.tag-b { background: var(--sage-light); color: var(--sage); }
-.tag-c { background: var(--coral-light); color: var(--coral); }
-.tag-d { background: var(--amber-light); color: var(--amber); }
-.tag-e { background: var(--plum-light); color: var(--plum); }
-.opt-title { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
-.opt-list { list-style: none; }
-.opt-list li {
-  font-size: 12px;
-  color: var(--text-muted);
-  padding: 3px 0;
-  display: flex;
-  gap: 6px;
-  line-height: 1.4;
+.tag-sage { background: var(--sage-pale); color: var(--sage); }
+.tag-amber { background: var(--amber-pale); color: var(--amber); }
+.tag-blue { background: var(--blue-pale); color: var(--blue); }
+.tag-coral { background: var(--coral-pale); color: var(--coral); }
+.tag-plum { background: var(--plum-pale); color: var(--plum); }
+.card-title { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+.card-list { list-style: none; }
+.card-list li {
+  font-size: 12px; color: var(--text-muted);
+  padding: 3px 0; display: flex; gap: 6px; line-height: 1.45;
 }
-.opt-list li::before { content: "·"; flex-shrink: 0; color: var(--sage-mid); }
+.card-list li::before { content: "·"; flex-shrink: 0; color: var(--sage-mid); }
 
-/* ── CALLOUTS ── */
-.callout {
-  padding: 11px 14px;
-  border-radius: var(--radius-sm);
-  font-size: 12px;
-  line-height: 1.7;
-  margin-top: 10px;
-}
-.callout strong { font-weight: 600; }
-.callout-warn { background: var(--amber-pale); color: #7A5010; border: 1px solid #E8C878; }
-.callout-info { background: var(--blue-pale); color: var(--blue); border: 1px solid #A8C8E8; }
-.callout-sage { background: var(--sage-pale); color: var(--sage); border: 1px solid var(--sage-light); }
-.callout-plum { background: var(--plum-pale); color: var(--plum); border: 1px solid var(--plum-light); }
-
-/* ── MEAL TIME STRIP ── */
+/* ── MEAL STRIP ── */
 .meal-strip {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 6px;
-  margin-bottom: 10px;
+  gap: 6px; margin-bottom: 10px;
 }
 .meal-cell {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 10px 12px;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 10px 12px;
 }
-.meal-time { font-size: 10px; color: var(--text-faint); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
-.meal-name { font-size: 12px; font-weight: 600; margin: 3px 0 2px; }
-.meal-detail { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+.meal-time-label { font-size: 10px; color: var(--text-faint); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+.meal-cell-name { font-size: 12px; font-weight: 600; margin: 3px 0 2px; }
+.meal-cell-detail { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
 
-/* ── DIVIDER ── */
-.divider { height: 1px; background: var(--border-light); margin: 1.5rem 0; }
-
-/* ════════════════════════════════
-   RESEP SECTION
-════════════════════════════════ */
-.recipe-grid { display: grid; gap: 10px; }
+/* ── RECIPE CARDS ── */
 .recipe-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  cursor: pointer;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  margin-bottom: 8px; cursor: pointer;
   transition: box-shadow 0.2s;
 }
-.recipe-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+.recipe-card:hover { box-shadow: 0 2px 14px rgba(74,124,89,0.1); }
 .recipe-head {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 16px;
+  display: flex; align-items: center; gap: 12px; padding: 14px 16px;
 }
 .recipe-emoji { font-size: 22px; flex-shrink: 0; }
 .recipe-info { flex: 1; }
 .recipe-name { font-size: 14px; font-weight: 600; }
 .recipe-tags { display: flex; gap: 5px; margin-top: 4px; flex-wrap: wrap; }
-.recipe-badge {
-  font-size: 10px;
-  font-weight: 600;
-  padding: 2px 7px;
-  border-radius: 20px;
-}
-.recipe-chevron {
-  font-size: 16px;
-  color: var(--text-faint);
-  transition: transform 0.2s;
-  flex-shrink: 0;
-}
+.recipe-badge { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 20px; }
+.recipe-chevron { font-size: 14px; color: var(--text-faint); transition: transform 0.2s; flex-shrink: 0; }
 .recipe-card.open .recipe-chevron { transform: rotate(180deg); }
-.recipe-body {
-  display: none;
-  padding: 0 16px 16px;
-  border-top: 1px solid var(--border-light);
-}
+.recipe-body { display: none; padding: 0 16px 16px; border-top: 1px solid var(--border-light); }
 .recipe-card.open .recipe-body { display: block; }
-.recipe-section-title {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-faint);
-  margin: 12px 0 6px;
+.recipe-section-label {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-faint); margin: 12px 0 6px;
 }
-.ingredient-list { list-style: none; }
-.ingredient-list li {
-  display: flex;
-  gap: 8px;
-  font-size: 12px;
-  color: var(--text-muted);
-  padding: 3px 0;
-  line-height: 1.4;
-}
-.ingredient-list li::before { content: "·"; color: var(--sage-mid); flex-shrink: 0; }
+.ing-list { list-style: none; }
+.ing-list li { font-size: 12px; color: var(--text-muted); padding: 3px 0; display: flex; gap: 6px; line-height: 1.4; }
+.ing-list li::before { content: "·"; color: var(--sage-mid); flex-shrink: 0; }
 .step-list { counter-reset: step; list-style: none; }
 .step-list li {
-  counter-increment: step;
-  display: flex;
-  gap: 10px;
-  font-size: 12px;
-  color: var(--text-muted);
-  padding: 5px 0;
-  line-height: 1.5;
+  counter-increment: step; display: flex; gap: 10px;
+  font-size: 12px; color: var(--text-muted);
+  padding: 5px 0; line-height: 1.5;
   border-bottom: 1px solid var(--border-light);
 }
 .step-list li:last-child { border-bottom: none; }
 .step-list li::before {
   content: counter(step);
-  width: 20px;
-  height: 20px;
-  background: var(--sage);
-  color: white;
-  border-radius: 50%;
-  font-size: 10px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-top: 1px;
+  width: 20px; height: 20px; background: var(--sage); color: white;
+  border-radius: 50%; font-size: 10px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
 }
+.family-box {
+  background: var(--sage-pale); border: 1px solid var(--sage-light);
+  border-radius: var(--radius-sm); padding: 10px 12px; margin-top: 10px;
+}
+.family-box-title { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); margin-bottom: 5px; }
+.family-box-list { list-style: none; }
+.family-box-list li { font-size: 12px; color: #3A6040; padding: 2px 0; display: flex; gap: 6px; }
+.family-box-list li::before { content: "👨‍👩‍👧"; font-size: 10px; flex-shrink: 0; margin-top: 2px; }
 .mod-box {
-  background: var(--amber-pale);
-  border: 1px solid #E8C878;
-  border-radius: var(--radius-sm);
-  padding: 10px 12px;
-  margin-top: 10px;
+  background: var(--amber-pale); border: 1px solid var(--amber-light);
+  border-radius: var(--radius-sm); padding: 10px 12px; margin-top: 8px;
 }
-.mod-title { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); margin-bottom: 5px; }
-.mod-list { list-style: none; }
-.mod-list li { font-size: 12px; color: #7A5010; padding: 2px 0; display: flex; gap: 6px; }
-.mod-list li::before { content: "✦"; font-size: 9px; color: var(--amber); flex-shrink: 0; margin-top: 2px; }
+.mod-box-title { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); margin-bottom: 5px; }
+.mod-box-list { list-style: none; }
+.mod-box-list li { font-size: 12px; color: #7A5010; padding: 2px 0; display: flex; gap: 6px; }
+.mod-box-list li::before { content: "✦"; font-size: 9px; color: var(--amber); flex-shrink: 0; margin-top: 3px; }
 
-/* ════════════════════════════════
-   EXERCISE SECTION
-════════════════════════════════ */
-.week-overview {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 4px;
-  margin-bottom: 1.25rem;
-}
-.day-dot {
-  text-align: center;
-  padding: 8px 4px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: var(--white);
-}
-.day-dot-label { font-size: 9px; font-weight: 600; color: var(--text-faint); letter-spacing: 0.04em; }
-.day-dot-icon { font-size: 14px; margin: 3px 0; }
-.day-dot-type { font-size: 9px; color: var(--text-muted); }
-.day-dot.active-day { background: var(--sage-pale); border-color: var(--sage-light); }
-
+/* ── EXERCISE ── */
 .ex-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 14px 16px;
-  margin-bottom: 8px;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 14px 16px; margin-bottom: 8px;
 }
 .ex-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
 .ex-icon { font-size: 20px; flex-shrink: 0; }
 .ex-name { font-size: 14px; font-weight: 600; flex: 1; }
-.ex-dur {
-  font-size: 11px;
-  font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 20px;
-}
+.ex-dur { font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; }
 .ex-items { list-style: none; }
 .ex-items li {
-  display: flex;
-  gap: 10px;
-  font-size: 12px;
-  padding: 5px 0;
-  border-bottom: 1px solid var(--border-light);
-  line-height: 1.5;
+  display: flex; gap: 10px; font-size: 12px;
+  padding: 5px 0; border-bottom: 1px solid var(--border-light); line-height: 1.5;
 }
 .ex-items li:last-child { border-bottom: none; }
 .ex-time { min-width: 50px; font-size: 11px; color: var(--text-faint); padding-top: 1px; font-weight: 500; }
-.ex-detail { flex: 1; }
 .ex-act { font-size: 12px; font-weight: 500; }
 .ex-desc { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
 
-/* ════════════════════════════════
-   GROCERY SECTION
-════════════════════════════════ */
-.grocery-progress {
-  background: var(--cream-dark);
+/* ── WEEK OVERVIEW (exercise) ── */
+.week-overview {
+  display: grid; grid-template-columns: repeat(7, 1fr);
+  gap: 4px; margin-bottom: 1.25rem;
+}
+.day-dot {
+  text-align: center; padding: 8px 4px;
   border-radius: var(--radius-sm);
-  padding: 11px 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 1.25rem;
-  border: 1px solid var(--border);
+  border: 1px solid var(--border); background: var(--white);
+}
+.day-dot.active-day { background: var(--sage-pale); border-color: var(--sage-light); }
+.day-dot-label { font-size: 9px; font-weight: 600; color: var(--text-faint); }
+.day-dot-icon { font-size: 14px; margin: 3px 0; }
+.day-dot-type { font-size: 9px; color: var(--text-muted); }
+
+/* ── GROCERY ── */
+.grocery-progress {
+  background: var(--cream-dark); border-radius: var(--radius-sm);
+  padding: 11px 14px; display: flex; align-items: center; gap: 12px;
+  margin-bottom: 1.25rem; border: 1px solid var(--border);
 }
 .gp-track { flex: 1; height: 5px; background: var(--border); border-radius: 20px; overflow: hidden; }
 .gp-fill { height: 100%; border-radius: 20px; background: var(--sage); transition: width 0.3s; }
 .gp-label { font-size: 12px; font-weight: 600; color: var(--sage); min-width: 70px; text-align: right; }
-
 .grocery-cat { margin-bottom: 1.5rem; }
 .cat-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-  padding-bottom: 7px;
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 8px; padding-bottom: 7px;
   border-bottom: 1px solid var(--border);
 }
 .cat-icon { font-size: 16px; }
 .cat-title { font-size: 13px; font-weight: 600; flex: 1; }
 .cat-count { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 20px; }
-
 .grocery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 6px; }
 .grocery-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 9px;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 10px 12px;
-  cursor: pointer;
-  transition: all 0.15s;
-  user-select: none;
+  display: flex; align-items: flex-start; gap: 9px;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 10px 12px;
+  cursor: pointer; transition: all 0.15s; user-select: none;
 }
 .grocery-item:hover { border-color: var(--sage-mid); }
 .grocery-item.checked { background: var(--sage-pale); border-color: var(--sage-light); }
 .grocery-item.checked .g-name { color: var(--sage); text-decoration: line-through; opacity: 0.6; }
 .g-check {
   width: 16px; height: 16px; border-radius: 4px;
-  border: 1.5px solid var(--border);
-  flex-shrink: 0;
-  margin-top: 1px;
+  border: 1.5px solid var(--border); flex-shrink: 0; margin-top: 1px;
   display: flex; align-items: center; justify-content: center;
   transition: all 0.15s;
 }
 .grocery-item.checked .g-check { background: var(--sage); border-color: var(--sage); }
 .grocery-item.checked .g-check::after {
-  content: '';
-  width: 8px; height: 5px;
-  border-left: 1.5px solid white;
-  border-bottom: 1.5px solid white;
-  transform: rotate(-45deg) translateY(-1px);
-  display: block;
+  content: ''; width: 8px; height: 5px;
+  border-left: 1.5px solid white; border-bottom: 1.5px solid white;
+  transform: rotate(-45deg) translateY(-1px); display: block;
 }
 .g-text { flex: 1; }
 .g-name { font-size: 12px; font-weight: 500; color: var(--text); line-height: 1.3; }
 .g-note { font-size: 10px; color: var(--text-faint); margin-top: 2px; }
 
+/* grocery week tabs */
+.gr-week-tabs { display: flex; gap: 6px; margin-bottom: 1.25rem; flex-wrap: wrap; }
+.gr-week-tab {
+  padding: 6px 15px; border-radius: 20px;
+  border: 1px solid var(--border); background: transparent;
+  cursor: pointer; font-size: 12px; font-family: 'Jost', sans-serif;
+  font-weight: 500; color: var(--text-muted); transition: all 0.15s;
+}
+.gr-week-tab.active { background: var(--sage); color: #F5F0E8; border-color: transparent; }
+.gr-week-panel { display: none; }
+.gr-week-panel.active { display: block; }
+
 .btn-row { display: flex; gap: 8px; justify-content: center; margin-top: 1.25rem; }
 .outline-btn {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--text-muted);
-  background: transparent;
-  border: 1px solid var(--border);
-  padding: 7px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.15s;
+  font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 500;
+  color: var(--text-muted); background: transparent;
+  border: 1px solid var(--border); padding: 7px 16px;
+  border-radius: 20px; cursor: pointer; transition: all 0.15s;
 }
 .outline-btn:hover { border-color: var(--sage-mid); color: var(--sage); }
 
+/* ── TIPS ── */
+.tips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.tip-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 14px;
+}
+.tip-icon { font-size: 20px; margin-bottom: 6px; }
+.tip-title { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+.tip-body { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+
+.divider { height: 1px; background: var(--border-light); margin: 1.5rem 0; }
+
 @media (max-width: 480px) {
-  .opts { grid-template-columns: 1fr; }
-  .header h1 { font-size: 2rem; }
+  .header h1 { font-size: 2.4rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .tips-grid { grid-template-columns: 1fr; }
   .grocery-grid { grid-template-columns: 1fr 1fr; }
-  .week-overview { grid-template-columns: repeat(7, 1fr); }
-  .day-dot-type { display: none; }
+  .budget-tiers { flex-direction: column; }
   .meal-strip { grid-template-columns: 1fr 1fr; }
+  .day-dot-type { display: none; }
 }
 </style>
 </head>
 <body>
 
+<!-- HEADER -->
 <div class="header">
-  <p class="header-eyebrow">Protein-First · Real Life Friendly · Muslim-Friendly</p>
-  <h1>Glow <em>Plan</em></h1>
+  <p class="header-eyebrow">Panduan Makan Sehat · Untuk Semua</p>
+  <h1><em>Nourish</em></h1>
   <p class="header-sub">Diet · Resep · Olahraga · Grocery List</p>
-  <div class="header-badges">
-    <span class="header-badge">Ibu Bekerja</span>
-    <span class="header-badge">2 Anak Balita</span>
-    <span class="header-badge">Halal</span>
-    <span class="header-badge">Prep Cepat</span>
-  </div>
+  <span class="header-tagline">Makan baik tidak harus rumit.</span>
 </div>
 
+<!-- MAIN NAV -->
 <nav class="main-nav">
-  <button class="main-nav-btn active" onclick="showSection('diet')">🥗 Diet Plan</button>
-  <button class="main-nav-btn" onclick="showSection('resep')">🍳 Resep</button>
-  <button class="main-nav-btn" onclick="showSection('exercise')">🏃 Olahraga</button>
-  <button class="main-nav-btn" onclick="showSection('grocery')">🛒 Grocery</button>
+  <button class="main-nav-btn active" onclick="showSection('diet', this)">🥗 Diet Plan</button>
+  <button class="main-nav-btn" onclick="showSection('resep', this)">🍳 Resep</button>
+  <button class="main-nav-btn" onclick="showSection('olahraga', this)">🏃 Olahraga</button>
+  <button class="main-nav-btn" onclick="showSection('grocery', this)">🛒 Grocery</button>
 </nav>
 
 <div class="content">
 
-<!-- ══════════════════════════════════════
+<!-- ══════════════════════
      DIET PLAN
-══════════════════════════════════════ -->
+══════════════════════ -->
 <div id="s-diet" class="section active">
-  <div class="section-header">
-    <h2 class="section-title">Diet <em>Protein-First</em></h2>
-    <p class="section-sub">Bukan eliminasi total — tapi urutan makan diubah dan porsi dikontrol. Bisa makan bareng keluarga, bisa beli di warteg, tetap masuk jalur.</p>
+  <div class="section-title">Diet <em>Protein-First</em></div>
+  <p class="section-sub">Bukan soal pantang makan — tapi soal urutan dan pilihan yang lebih cerdas. Bisa makan bareng keluarga, bisa beli di luar, tetap pada jalurnya.</p>
+
+  <!-- BUDGET CONFIGURATOR -->
+  <div class="budget-config">
+    <div class="budget-config-title">⚙️ Sesuaikan dengan kondisimu</div>
+    <div class="budget-row">
+      <div class="budget-people">
+        <label>Jumlah anggota keluarga</label>
+        <div class="people-input-row">
+          <button class="people-btn" onclick="changePeople(-1)">−</button>
+          <span class="people-count" id="people-count">4</span>
+          <button class="people-btn" onclick="changePeople(1)">+</button>
+        </div>
+      </div>
+      <div class="budget-tiers">
+        <button class="budget-tier active-hemat" onclick="setBudget('hemat', this)" id="tier-hemat">
+          <div class="tier-name"><span>🟢</span> Hemat</div>
+          <div class="tier-price">Rp 15–20rb / orang</div>
+          <div class="tier-total total-hemat" id="total-hemat">Total: Rp 60–80rb/hari</div>
+        </button>
+        <button class="budget-tier" onclick="setBudget('menengah', this)" id="tier-menengah">
+          <div class="tier-name"><span>🟡</span> Menengah</div>
+          <div class="tier-price">Rp 25–40rb / orang</div>
+          <div class="tier-total total-menengah" id="total-menengah">Total: Rp 100–160rb/hari</div>
+        </button>
+        <button class="budget-tier" onclick="setBudget('leluasa', this)" id="tier-leluasa">
+          <div class="tier-name"><span>🔵</span> Leluasa</div>
+          <div class="tier-price">Rp 45–65rb / orang</div>
+          <div class="tier-total total-leluasa" id="total-leluasa">Total: Rp 180–260rb/hari</div>
+        </button>
+      </div>
+    </div>
   </div>
 
+  <!-- WEEK TABS -->
   <div class="week-tabs">
-    <button class="week-tab active" onclick="showWeek('diet',0,this)">Minggu 1</button>
-    <button class="week-tab" onclick="showWeek('diet',1,this)">Minggu 2</button>
-    <button class="week-tab" onclick="showWeek('diet',2,this)">Minggu 3</button>
-    <button class="week-tab" onclick="showWeek('diet',3,this)">Minggu 4+</button>
-    <button class="week-tab" onclick="showWeek('diet',4,this)">Aturan Umum</button>
+    <button class="week-tab active" onclick="showWeek(0, this)">Minggu 1</button>
+    <button class="week-tab" onclick="showWeek(1, this)">Minggu 2</button>
+    <button class="week-tab" onclick="showWeek(2, this)">Minggu 3</button>
+    <button class="week-tab" onclick="showWeek(3, this)">Minggu 4+</button>
+    <button class="week-tab" onclick="showWeek(4, this)">Aturan Umum</button>
   </div>
 
-  <!-- MINGGU 1 -->
+  <!-- ── MINGGU 1 ── -->
   <div class="week-panel active" id="diet-w0">
     <div class="progress-row">
-      <span class="phase-pill" style="background:var(--blue-light);color:var(--blue);">Fase 1 · Adaptasi</span>
+      <span class="progress-pill" style="background:var(--blue-pale);color:var(--blue);">Fase 1 · Adaptasi</span>
       <div class="progress-track"><div class="progress-fill" style="width:25%"></div></div>
     </div>
 
-    <div class="callout callout-sage" style="margin-bottom:1rem">
-      <strong>Minggu 1 = bangun kebiasaan.</strong> Jangan ubah semua sekaligus. Fokus di <strong>3 hal ini dulu:</strong> (1) protein di setiap makan, (2) nasi max setengah porsi biasa, (3) makan malam ringan.
+    <!-- HEMAT -->
+    <div class="budget-panel active" id="w0-hemat">
+      <div class="callout callout-sage">
+        <strong>Minggu 1 · Hemat</strong> — Protein dari telur, tahu, tempe, dan ikan teri. Semua bahan mudah ditemukan di pasar atau warung terdekat. Bumbu kuat supaya tetap enak untuk seluruh keluarga.
+      </div>
+      <p class="phase-label">Senin & Selasa</p>
+      <div class="day-plan">
+        <div class="day-header">
+          <span class="day-name">Senin</span>
+          <span class="day-badge" style="background:var(--sage-pale);color:var(--sage);">Full Protein Day</span>
+        </div>
+        <div class="day-meals">
+          <div class="meal-row">
+            <div class="meal-time-col">Sarapan</div>
+            <div class="meal-content">
+              <div class="meal-name">Telur Ceplok + Oatmeal Gurih</div>
+              <div class="meal-detail">Oatmeal dimasak dengan air garam, telur ceplok minyak tipis, timun iris. Susu kedelai sachet.</div>
+              <div class="meal-family-note">Keluarga bisa tambah nasi dan lauk lain. Oatmeal buat ibu diet saja.</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-time-col">Snack</div>
+            <div class="meal-content">
+              <div class="meal-name">Kacang Rebus / Edamame</div>
+              <div class="meal-detail">Segenggam kacang tanah rebus atau edamame. Murah, mengenyangkan, tinggi protein.</div>
+              <div class="meal-family-note">Anak-anak biasanya suka kacang rebus — bisa dibagi.</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-time-col">Siang</div>
+            <div class="meal-content">
+              <div class="meal-name">Tempe Orek + Sayur Bening + Nasi Sedikit</div>
+              <div class="meal-detail">Tempe orek bumbu kecap asin (no gula), sayur bening bayam, nasi 3 sdm untuk diet / porsi normal untuk keluarga.</div>
+              <div class="meal-family-note">Satu masakan, dua cara saji: keluarga dapat nasi penuh, ibu diet ambil sedikit.</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-time-col">Snack</div>
+            <div class="meal-content">
+              <div class="meal-name">Yogurt Plain + Pisang Kecil</div>
+              <div class="meal-detail">Yogurt Cimory plain 1 cup. Pisang 1/2 buah. Atau ganti susu kedelai kotak jika lebih hemat.</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-time-col">Malam</div>
+            <div class="meal-content">
+              <div class="meal-name">Tahu Kukus + Tumis Kangkung Bawang Putih</div>
+              <div class="meal-detail">Tahu putih dikukus / digoreng tipis, tumis kangkung bawang putih cabai. Makan malam ringan, no nasi untuk diet.</div>
+              <div class="meal-family-note">Anak dan keluarga tetap makan dengan nasi. Masaknya sama, tinggal skip nasi buat diri sendiri.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="phase-label">Rabu & Kamis</p>
+      <div class="day-plan">
+        <div class="day-header">
+          <span class="day-name">Rabu</span>
+          <span class="day-badge" style="background:var(--amber-pale);color:var(--amber);">Low Carb</span>
+        </div>
+        <div class="day-meals">
+          <div class="meal-row">
+            <div class="meal-time-col">Sarapan</div>
+            <div class="meal-content">
+              <div class="meal-name">Telur Dadar Sayur + Roti Gandum</div>
+              <div class="meal-detail">2 telur + wortel parut + bawang daun. 1 lembar roti gandum. Teh tawar.</div>
+              <div class="meal-family-note">Anak bisa tambah 1–2 lembar roti lagi. Telur dadar bisa dibagi sekeluarga.</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-time-col">Siang</div>
+            <div class="meal-content">
+              <div class="meal-name">Soto Ayam Bening Sederhana</div>
+              <div class="meal-detail">Ayam suwir + tauge + daun bawang + bihun sedikit (skip untuk diet). Bumbu: bawang putih, jahe, kunyit, garam. Nasi sedikit.</div>
+              <div class="meal-family-note">Bumbu kuning kuat — anak-anak biasanya suka. Bihun untuk anak, skip untuk diet.</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-time-col">Malam</div>
+            <div class="meal-content">
+              <div class="meal-name">Sup Tahu Tempe Bening</div>
+              <div class="meal-detail">Tahu + tempe + wortel + buncis + jahe. Kaldu bening ringan. Sangat mudah dibuat, murah, bergizi.</div>
+              <div class="meal-family-note">Tambahkan nasi untuk keluarga. Sup ini cocok untuk semua usia termasuk anak kecil.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="phase-label">Jumat – Minggu</p>
+      <div class="card-grid">
+        <div class="card">
+          <span class="card-tag tag-sage">Jumat</span>
+          <p class="card-title">Ikan Teri + Pecel Sayur</p>
+          <ul class="card-list">
+            <li>Teri goreng / oseng teri kacang</li>
+            <li>Sayur rebus lengkap: kangkung, tauge, kacang panjang</li>
+            <li>Saus kacang no gula (kacang + cabai + garam + jeruk nipis)</li>
+            <li>Nasi sedikit untuk diet / normal untuk keluarga</li>
+            <li>Anak-anak: bisa tambah kerupuk</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="card-tag tag-amber">Sabtu</span>
+          <p class="card-title">Ayam Bumbu Kuning (Porsi Keluarga)</p>
+          <ul class="card-list">
+            <li>Ayam utuh / potong, bumbu kuning kuat</li>
+            <li>Goreng / panggang sesuai selera</li>
+            <li>Ibu diet: ambil bagian dada, buang kulit</li>
+            <li>Lalapan + sambal + nasi sedikit</li>
+            <li>Satu masak untuk semua — hemat waktu!</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="card-tag tag-blue">Minggu</span>
+          <p class="card-title">Sayur Asem + Tempe Goreng</p>
+          <ul class="card-list">
+            <li>Sayur asem bening: jagung, labu siam, kacang panjang</li>
+            <li>Tempe goreng minyak sedikit</li>
+            <li>Sambel terasi untuk keluarga</li>
+            <li>Hari santai — boleh makan sedikit lebih longgar</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout callout-sage" style="margin-top:10px">
+        <strong>Estimasi belanja Minggu 1 · Hemat (4 orang):</strong> Rp 60–80rb/hari, atau Rp 420–560rb/minggu. Beli telur 1 papan, tahu tempe 2 papan masing-masing, ayam 1 ekor, dan sayuran pasar sudah cukup untuk seminggu.
+      </div>
     </div>
 
-    <p class="phase-label">Pola Makan Harian — Minggu 1</p>
-    <div class="meal-strip">
-      <div class="meal-cell">
-        <div class="meal-time">06.00–06.30</div>
-        <div class="meal-name">Sarapan</div>
-        <div class="meal-detail">Telur 2 butir + susu kedelai/almond. Bisa tambah 1 lembar roti gandum.</div>
+    <!-- MENENGAH -->
+    <div class="budget-panel" id="w0-menengah">
+      <div class="callout callout-amber">
+        <strong>Minggu 1 · Menengah</strong> — Variasi protein lebih luas: ayam, ikan dori, telur, tahu, tempe. Menu lebih bervariasi, tetap bisa masak sekali untuk seluruh keluarga.
       </div>
-      <div class="meal-cell">
-        <div class="meal-time">09.30–10.00</div>
-        <div class="meal-name">Snack Pagi</div>
-        <div class="meal-detail">Yogurt plain 150ml, atau segenggam kacang almond/edamame.</div>
+      <p class="phase-label">Senin & Selasa</p>
+      <div class="day-plan">
+        <div class="day-header">
+          <span class="day-name">Senin</span>
+          <span class="day-badge" style="background:var(--blue-pale);color:var(--blue);">Protein Solid</span>
+        </div>
+        <div class="day-meals">
+          <div class="meal-row">
+            <div class="meal-time-col">Sarapan</div>
+            <div class="meal-content">
+              <div class="meal-name">Oatmeal + Telur Rebus + Susu Kedelai</div>
+              <div class="meal-detail">Oatmeal 50g + telur rebus 2 butir + susu kedelai 250ml. Tambah irisan pisang untuk rasa.</div>
+              <div class="meal-family-note">Anak bisa sarapan nasi goreng / bubur sementara ibu makan oatmeal. Persiapan berbeda tapi tetap cepat.</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-time-col">Siang</div>
+            <div class="meal-content">
+              <div class="meal-name">Ayam Bakar Bumbu Merah + Lalapan + Nasi Sedikit</div>
+              <div class="meal-detail">Dada ayam bumbu merah (bawang, tomat, cabai, kunyit). Lalapan lengkap. Sambal. Nasi 3–4 sdm untuk diet.</div>
+              <div class="meal-family-note">Satu masak untuk semua. Anak-anak suka bumbu merah yang gurih. Porsi nasi dibedakan saat saji.</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-time-col">Malam</div>
+            <div class="meal-content">
+              <div class="meal-name">Sup Ikan Dori Tomat</div>
+              <div class="meal-detail">Ikan dori + tomat + jahe + wortel + daun bawang. Kuah bening sedikit asam dari tomat. Segar dan ringan untuk malam.</div>
+              <div class="meal-family-note">Anak-anak biasanya suka sup ikan kuah tomat yang segar. Nasi untuk keluarga, skip untuk diet.</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="meal-cell">
-        <div class="meal-time">12.00–13.00</div>
-        <div class="meal-name">Makan Siang</div>
-        <div class="meal-detail">Bebas pilih — tapi protein dulu, lalu sayur, nasi terakhir & setengah porsi.</div>
+
+      <p class="phase-label">Rabu – Jumat</p>
+      <div class="card-grid">
+        <div class="card">
+          <span class="card-tag tag-sage">Rabu</span>
+          <p class="card-title">Gado-gado Protein</p>
+          <ul class="card-list">
+            <li>Sayur rebus lengkap</li>
+            <li>Tahu + tempe + telur rebus + ayam suwir</li>
+            <li>Saus kacang homemade no gula</li>
+            <li>Skip lontong untuk diet / beri anak sedikit</li>
+            <li>Rasa kuat, anak-anak suka</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="card-tag tag-amber">Kamis</span>
+          <p class="card-title">Soto Betawi Bening (No Santan)</p>
+          <ul class="card-list">
+            <li>Daging ayam suwir + jeroan skip</li>
+            <li>Tomat + daun bawang + emping</li>
+            <li>Bumbu: kunyit, jahe, serai, daun salam</li>
+            <li>Nasi sedikit untuk diet</li>
+            <li>Emping untuk anak sebagai pengganti kerupuk</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="card-tag tag-blue">Jumat</span>
+          <p class="card-title">Ikan Bumbu Kuning + Sayur Tumis</p>
+          <ul class="card-list">
+            <li>Ikan dori / gurame bumbu kuning</li>
+            <li>Tumis buncis + wortel bawang putih</li>
+            <li>Nasi sedikit atau ubi rebus</li>
+            <li>Bumbu kuning kuat, favorit semua usia</li>
+          </ul>
+        </div>
       </div>
-      <div class="meal-cell">
-        <div class="meal-time">15.30–16.00</div>
-        <div class="meal-name">Snack Sore</div>
-        <div class="meal-detail">Buah 1 porsi kecil + telur rebus 1, atau tahu kukus 2 potong.</div>
+
+      <p class="phase-label">Sabtu & Minggu · Masak Bareng Keluarga</p>
+      <div class="card-grid">
+        <div class="card">
+          <span class="card-tag tag-plum">Sabtu</span>
+          <p class="card-title">Ayam Panggang Herbal</p>
+          <ul class="card-list">
+            <li>Ayam 1 ekor dipanggang bumbu herbal</li>
+            <li>Ibu diet: ambil dada, buang kulit</li>
+            <li>Sambal hijau + lalapan segar</li>
+            <li>Keluarga nikmati dengan nasi penuh</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="card-tag tag-sage">Minggu</span>
+          <p class="card-title">Mie Goreng Sayur (Versi Diet)</p>
+          <ul class="card-list">
+            <li>Untuk keluarga: mie goreng biasa</li>
+            <li>Untuk diet: ganti mie dengan shirataki / bihun sedikit</li>
+            <li>Bumbu sama: bawang putih, kecap asin, sayur, telur</li>
+            <li>Anak-anak: tambah bakso / sosis sesuai selera</li>
+          </ul>
+        </div>
       </div>
-      <div class="meal-cell">
-        <div class="meal-time">19.00–20.00</div>
-        <div class="meal-name">Makan Malam</div>
-        <div class="meal-detail">Protein + sayur. Nasi 2–3 sdm saja, atau skip kalau bisa.</div>
+
+      <div class="callout callout-amber" style="margin-top:10px">
+        <strong>Estimasi belanja Minggu 1 · Menengah (4 orang):</strong> Rp 100–160rb/hari, atau sekitar Rp 700rb–1.1jt/minggu. Belanja bisa sekali seminggu di pasar atau supermarket.
       </div>
     </div>
 
-    <p class="phase-label" style="margin-top:1.5rem">Pilihan Sarapan Cepat (< 10 menit)</p>
-    <div class="opts">
-      <div class="opt-card">
-        <span class="opt-tag tag-a">Opsi A</span>
-        <p class="opt-title">Telur + Roti Gandum</p>
-        <ul class="opt-list">
-          <li>Telur ceplok/rebus 2 butir (minyak tipis)</li>
-          <li>1 lembar roti gandum</li>
-          <li>Susu kedelai tanpa gula 250ml</li>
-          <li>Timun / tomat iris</li>
-        </ul>
+    <!-- LELUASA -->
+    <div class="budget-panel" id="w0-leluasa">
+      <div class="callout callout-blue">
+        <strong>Minggu 1 · Leluasa</strong> — Protein premium (salmon, daging sapi, udang), bahan organik opsional, lebih banyak variasi. Tetap family-friendly dan tidak perlu masak dua kali.
       </div>
-      <div class="opt-card">
-        <span class="opt-tag tag-b">Opsi B</span>
-        <p class="opt-title">Smoothie Protein</p>
-        <ul class="opt-list">
-          <li>Pisang 1/2 buah (kecil)</li>
-          <li>Susu kedelai 200ml</li>
-          <li>Yogurt plain 100ml</li>
-          <li>1 sdm selai kacang tanpa gula</li>
-        </ul>
+      <p class="phase-label">Menu Harian — Leluasa</p>
+      <div class="day-plan">
+        <div class="day-header">
+          <span class="day-name">Senin</span>
+          <span class="day-badge" style="background:var(--blue-pale);color:var(--blue);">Protein Premium</span>
+        </div>
+        <div class="day-meals">
+          <div class="meal-row">
+            <div class="meal-time-col">Sarapan</div>
+            <div class="meal-content">
+              <div class="meal-name">Smoothie Bowl + Telur Poach</div>
+              <div class="meal-detail">Yogurt Greek + pisang beku + granola sedikit. Telur poach di atasnya. Presentasi cantik, bergizi tinggi.</div>
+              <div class="meal-family-note">Anak bisa makan roti dengan selai kacang. Smoothie bowl untuk ibu saja.</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-time-col">Siang</div>
+            <div class="meal-content">
+              <div class="meal-name">Salmon Panggang Bumbu Kuning + Quinoa / Nasi Merah</div>
+              <div class="meal-detail">Salmon 150g bumbu kuning Indonesia + tumis brokoli bawang putih + nasi merah atau quinoa sedikit.</div>
+              <div class="meal-family-note">Anak bisa makan salmon dengan nasi putih biasa. Bumbu kuning tetap ramah anak.</div>
+            </div>
+          </div>
+          <div class="meal-row">
+            <div class="meal-time-col">Malam</div>
+            <div class="meal-content">
+              <div class="meal-name">Sup Udang Tomat Segar</div>
+              <div class="meal-detail">Udang segar + tomat + paprika + jahe + bawang putih. Kuah bening sedikit asam. Ringan untuk malam.</div>
+              <div class="meal-family-note">Udang disukai anak-anak. Tambah sedikit bihun untuk anak agar lebih mengenyangkan.</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="opt-card">
-        <span class="opt-tag tag-c">Opsi C</span>
-        <p class="opt-title">Oatmeal Gurih</p>
-        <ul class="opt-list">
-          <li>Oatmeal 40g direbus dengan air</li>
-          <li>Telur rebus 1 butir di atasnya</li>
-          <li>Garam, merica, daun bawang</li>
-          <li>Susu kedelai / air putih</li>
-        </ul>
+      <div class="card-grid" style="margin-top:10px">
+        <div class="card">
+          <span class="card-tag tag-blue">Selasa–Rabu</span>
+          <p class="card-title">Variasi Sapi & Ayam</p>
+          <ul class="card-list">
+            <li>Selasa: Daging sapi has dalam / sirloin panggang tipis + salad</li>
+            <li>Rabu: Ayam bakar madu rendah gula + ubi panggang</li>
+            <li>Semua bisa dinikmati keluarga</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="card-tag tag-sage">Kamis–Jumat</span>
+          <p class="card-title">Seafood & Tahu Sutra</p>
+          <ul class="card-list">
+            <li>Kamis: Cumi saus tiram rendah gula + tumis brokoli</li>
+            <li>Jumat: Tahu sutra kukus + ikan kakap bumbu kuning</li>
+            <li>Weekend: bebas pilih dari menu favorit</li>
+          </ul>
+        </div>
       </div>
-    </div>
-
-    <p class="phase-label" style="margin-top:1.5rem">Pilihan Makan Siang (Bisa di Warteg / Kantin)</p>
-    <div class="opts">
-      <div class="opt-card">
-        <span class="opt-tag tag-a">Opsi A · Warteg</span>
-        <p class="opt-title">Ayam + Sayur</p>
-        <ul class="opt-list">
-          <li>Ayam bakar/goreng (buang kulit)</li>
-          <li>Sayur bening / tumis kangkung</li>
-          <li>Tahu / tempe</li>
-          <li>Nasi setengah porsi (max 100g)</li>
-        </ul>
+      <div class="callout callout-blue" style="margin-top:10px">
+        <strong>Estimasi belanja Minggu 1 · Leluasa (4 orang):</strong> Rp 180–260rb/hari, atau sekitar Rp 1.2–1.8jt/minggu. Bisa belanja di supermarket atau langganan layanan meal prep.
       </div>
-      <div class="opt-card">
-        <span class="opt-tag tag-b">Opsi B · Rumahan</span>
-        <p class="opt-title">Pecel / Gado-gado</p>
-        <ul class="opt-list">
-          <li>Sayur rebus lengkap</li>
-          <li>Tahu + tempe + telur</li>
-          <li>Saus kacang no gula</li>
-          <li>No lontong, atau 1/4 porsi saja</li>
-        </ul>
-      </div>
-      <div class="opt-card">
-        <span class="opt-tag tag-c">Opsi C · Luar</span>
-        <p class="opt-title">Soto / Sup Bening</p>
-        <ul class="opt-list">
-          <li>Soto ayam bening (no santan)</li>
-          <li>Minta extra sayur dan ayam</li>
-          <li>No bihun / mie, atau sedikit</li>
-          <li>Nasi terpisah, ambil sedikit</li>
-        </ul>
-      </div>
-    </div>
-
-    <p class="phase-label" style="margin-top:1.5rem">Pilihan Makan Malam Ringan (20 menit masak)</p>
-    <div class="opts">
-      <div class="opt-card">
-        <span class="opt-tag tag-a">Opsi A</span>
-        <p class="opt-title">Sup Tahu Bayam</p>
-        <ul class="opt-list">
-          <li>Tahu putih 4 potong</li>
-          <li>Bayam 1 ikat</li>
-          <li>Kaldu ayam bening</li>
-          <li>Bisa makan bareng nasi anak (ambil sedikit)</li>
-        </ul>
-      </div>
-      <div class="opt-card">
-        <span class="opt-tag tag-b">Opsi B</span>
-        <p class="opt-title">Telur Dadar Sayur</p>
-        <ul class="opt-list">
-          <li>3 putih telur + 1 kuning</li>
-          <li>Wortel, bawang daun, tomat</li>
-          <li>Minyak 1/2 sdt tipis</li>
-          <li>Lalapan timun + sambal</li>
-        </ul>
-      </div>
-      <div class="opt-card">
-        <span class="opt-tag tag-c">Opsi C</span>
-        <p class="opt-title">Ikan Kukus Kecap</p>
-        <ul class="opt-list">
-          <li>Ikan dori / gurame 150g</li>
-          <li>Jahe, bawang putih, cabai</li>
-          <li>1 sdt kecap asin (no kecap manis)</li>
-          <li>Tumis sayur di minyak minimal</li>
-        </ul>
-      </div>
-    </div>
-    <div class="callout callout-warn" style="margin-top:10px">
-      <strong>Target Minggu 1:</strong> Jangan timbang berat dulu. Fokus konsisten di pola, bukan sempurna di semua hari. Kalau 1 hari meleset, lanjut lagi hari berikutnya. Badan butuh 7–10 hari untuk mulai terasa bedanya.
     </div>
   </div>
 
-  <!-- MINGGU 2 -->
+  <!-- ── MINGGU 2 ── -->
   <div class="week-panel" id="diet-w1">
     <div class="progress-row">
-      <span class="phase-pill" style="background:var(--sage-light);color:var(--sage);">Fase 2 · Penguatan</span>
+      <span class="progress-pill" style="background:var(--sage-pale);color:var(--sage);">Fase 2 · Penguatan</span>
       <div class="progress-track"><div class="progress-fill" style="width:50%"></div></div>
     </div>
-    <div class="callout callout-sage" style="margin-bottom:1rem">
-      <strong>Minggu 2 = mulai ketat di makan malam.</strong> Sarapan & siang masih sama, tapi makan malam mulai no nasi konsisten. Tambah 1 "Protein Day" — pilih hari paling santai (weekend?).
+
+    <div class="budget-panel active" id="w1-hemat">
+      <div class="callout callout-sage">
+        <strong>Minggu 2 · Hemat</strong> — Mulai ketat di makan malam (no nasi). Tambah 1 hari protein penuh. Bahan masih sama dengan minggu 1, variasi dari bumbu dan cara masak.
+      </div>
+      <div class="phase-banner"><div class="phase-dot" style="background:var(--sage)"></div><span class="phase-title">Upgrade: makan malam mulai no nasi konsisten</span><span class="phase-meta">+1 Protein Day</span></div>
+      <div class="card-grid">
+        <div class="card">
+          <span class="card-tag tag-sage">Protein Day (Sabtu)</span>
+          <p class="card-title">Full Protein Seharian</p>
+          <ul class="card-list">
+            <li>Pagi: Telur rebus 2 + susu kedelai + timun</li>
+            <li>Snack: Kacang rebus segenggam</li>
+            <li>Siang: Tahu tempe kukus + lalapan banyak + saus kacang</li>
+            <li>Snack: Yogurt plain</li>
+            <li>Malam: Sup tahu bayam bening</li>
+            <li>No nasi sepanjang hari</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="card-tag tag-amber">Hari Biasa (6 hari)</span>
+          <p class="card-title">Pola Minggu 2</p>
+          <ul class="card-list">
+            <li>Sarapan: sama dengan Minggu 1</li>
+            <li>Siang: protein + sayur + nasi sedikit</li>
+            <li>Malam: protein + sayur TANPA nasi</li>
+            <li>Snack: kacang, yogurt, atau buah + telur</li>
+            <li>Air putih min. 2 liter</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="card-tag tag-blue">Tips Hemat</span>
+          <p class="card-title">Stretching Bahan</p>
+          <ul class="card-list">
+            <li>Sisa ayam siang → suwir untuk sup malam</li>
+            <li>Tahu tempe beli banyak, simpan di kulkas 3–4 hari</li>
+            <li>Sayuran beli sekaligus di pasar, lebih murah</li>
+            <li>Telur adalah penyelamat budget — selalu stok</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <p class="phase-label">Upgrade dari Minggu 1</p>
-    <div class="opts">
-      <div class="opt-card">
-        <span class="opt-tag tag-a">Perubahan 1</span>
-        <p class="opt-title">Makan Malam No Nasi</p>
-        <ul class="opt-list">
-          <li>Protein + sayur saja</li>
-          <li>Kalau lapar: tambah tahu/tempe atau telur</li>
-          <li>Boleh makan bareng keluarga, tinggal skip nasinya</li>
-        </ul>
+    <div class="budget-panel" id="w1-menengah">
+      <div class="callout callout-amber">
+        <strong>Minggu 2 · Menengah</strong> — Pola sama, tapi mulai variasi dengan bahan yang sedikit lebih premium. Snack upgrade ke yogurt Greek atau kacang mete.
       </div>
-      <div class="opt-card">
-        <span class="opt-tag tag-b">Perubahan 2</span>
-        <p class="opt-title">1 Protein Day / Minggu</p>
-        <ul class="opt-list">
-          <li>Pilih Sabtu atau Minggu</li>
-          <li>Sepanjang hari: hanya protein + sayur bebas</li>
-          <li>Ini "reset" mingguan — tidak perlu setiap hari</li>
-        </ul>
-      </div>
-      <div class="opt-card">
-        <span class="opt-tag tag-c">Perubahan 3</span>
-        <p class="opt-title">Upgrade Snack</p>
-        <ul class="opt-list">
-          <li>Stop snack manis / gorengan</li>
-          <li>Ganti: edamame, telur rebus, yogurt plain</li>
-          <li>Boleh: dark chocolate 1–2 kotak (70%+) kalau ngidam</li>
-        </ul>
+      <div class="card-grid">
+        <div class="card">
+          <span class="card-tag tag-amber">Upgrade Snack</span>
+          <p class="card-title">Snack Lebih Bergizi</p>
+          <ul class="card-list">
+            <li>Ganti yogurt biasa → yogurt Greek (protein 2x lipat)</li>
+            <li>Kacang almond / mete 10–15 biji</li>
+            <li>Buah + selai kacang tanpa gula</li>
+            <li>Dark chocolate 70% 1–2 kotak kalau ngidam</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="card-tag tag-sage">Menu Baru</span>
+          <p class="card-title">Tambahan Variasi</p>
+          <ul class="card-list">
+            <li>Opor ayam no santan (pakai susu kedelai)</li>
+            <li>Tumis daging sapi bawang bombay</li>
+            <li>Salad telur + avokad + tomat</li>
+            <li>Sup krim labu (no krim, pakai susu kedelai)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="card-tag tag-blue">Protein Day</span>
+          <p class="card-title">1x Seminggu</p>
+          <ul class="card-list">
+            <li>Pilih Sabtu atau Minggu</li>
+            <li>Protein + sayur seharian</li>
+            <li>Lebih bervariasi: salmon / udang / ayam</li>
+            <li>Bukan hari hukuman — ini hari reset</li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <p class="phase-label" style="margin-top:1.5rem">Contoh Menu Sehari — Protein Day</p>
-    <div class="meal-strip">
-      <div class="meal-cell">
-        <div class="meal-time">07.00</div>
-        <div class="meal-name">Sarapan</div>
-        <div class="meal-detail">Telur rebus 2 + susu kedelai no gula + timun.</div>
+    <div class="budget-panel" id="w1-leluasa">
+      <div class="callout callout-blue">
+        <strong>Minggu 2 · Leluasa</strong> — Mulai eksplorasi meal prep: masak banyak di weekend, simpan untuk weekdays. Hemat waktu, tetap bergizi.
       </div>
-      <div class="meal-cell">
-        <div class="meal-time">10.00</div>
-        <div class="meal-name">Snack</div>
-        <div class="meal-detail">Yogurt plain 150ml + 10 biji kacang almond.</div>
+      <div class="card-grid">
+        <div class="card">
+          <span class="card-tag tag-blue">Meal Prep Weekend</span>
+          <p class="card-title">Masak Minggu, Makan Senin–Rabu</p>
+          <ul class="card-list">
+            <li>Panggang 4 dada ayam bumbu herbal → simpan</li>
+            <li>Rebus quinoa / nasi merah 400g → simpan</li>
+            <li>Blanch 3 jenis sayur → simpan terpisah</li>
+            <li>Buat saus kacang 1 toples → tahan 5 hari di kulkas</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="card-tag tag-sage">Weekday Easy</span>
+          <p class="card-title">Tinggal Assemble</p>
+          <ul class="card-list">
+            <li>Bowl: nasi merah + ayam + sayur + saus</li>
+            <li>Bento: telur + sayur + tahu</li>
+            <li>Wrap: roti gandum + ayam suwir + selada</li>
+            <li>Sup: kaldu + bahan yang sudah dimasak</li>
+          </ul>
+        </div>
       </div>
-      <div class="meal-cell">
-        <div class="meal-time">13.00</div>
-        <div class="meal-name">Siang</div>
-        <div class="meal-detail">Dada ayam rebus/bakar + lalapan lengkap + tahu kukus. No nasi.</div>
-      </div>
-      <div class="meal-cell">
-        <div class="meal-time">16.00</div>
-        <div class="meal-name">Snack</div>
-        <div class="meal-detail">Susu kedelai 250ml atau putih telur 3 butir dadar tipis.</div>
-      </div>
-      <div class="meal-cell">
-        <div class="meal-time">19.00</div>
-        <div class="meal-name">Malam</div>
-        <div class="meal-detail">Ikan kukus + bayam rebus + tahu. No nasi.</div>
-      </div>
-    </div>
-    <div class="callout callout-info">
-      Protein Day bukan hukuman — ini cara kasih jeda ke sistem pencernaan. Kalau terasa pusing atau lemas, tambah 1 sdm madu atau makan buah kecil. Itu normal di awal.
     </div>
   </div>
 
-  <!-- MINGGU 3 -->
+  <!-- ── MINGGU 3 ── -->
   <div class="week-panel" id="diet-w2">
     <div class="progress-row">
-      <span class="phase-pill" style="background:var(--amber-light);color:var(--amber);">Fase 3 · Momentum</span>
+      <span class="progress-pill" style="background:var(--amber-pale);color:var(--amber);">Fase 3 · Momentum</span>
       <div class="progress-track"><div class="progress-fill" style="width:75%"></div></div>
     </div>
-    <div class="callout callout-sage" style="margin-bottom:1rem">
-      <strong>Minggu 3 = tubuh sudah mulai adaptasi.</strong> Ini waktunya sedikit lebih ketat di siang, dan mulai perhatikan kualitas karbohidrat.
+    <div class="callout callout-sage">
+      <strong>Minggu 3</strong> — Mulai ganti karbohidrat ke versi kompleks. Nasi merah menggantikan nasi putih (bertahap). Makan malam sudah konsisten no nasi. Hidrasi 2–2.5 liter per hari.
     </div>
 
-    <p class="phase-label">Upgrade Kunci — Minggu 3</p>
-    <div class="opts">
-      <div class="opt-card">
-        <span class="opt-tag tag-a">Karbo Pilihan</span>
-        <p class="opt-title">Ganti ke Karbo Kompleks</p>
-        <ul class="opt-list">
-          <li>Nasi merah gantikan nasi putih (bertahap)</li>
-          <li>Atau nasi putih porsi lebih kecil lagi (3–4 sdm)</li>
-          <li>Oatmeal, ubi, jagung sebagai alternatif</li>
-          <li>Roti gandum murni (bukan gandum palsu)</li>
-        </ul>
-      </div>
-      <div class="opt-card">
-        <span class="opt-tag tag-b">Timing Makan</span>
-        <p class="opt-title">Stop Makan di Atas Jam 8</p>
-        <ul class="opt-list">
-          <li>Makan malam selesai sebelum jam 20.00</li>
-          <li>Kalau lapar setelah itu: air putih hangat / teh tanpa gula</li>
-          <li>Atau susu kedelai hangat kecil (150ml)</li>
-        </ul>
-      </div>
-      <div class="opt-card">
-        <span class="opt-tag tag-c">Hidrasi</span>
-        <p class="opt-title">Target Air Putih</p>
-        <ul class="opt-list">
-          <li>2–2.5 liter per hari</li>
-          <li>Minum 1 gelas sebelum tiap makan</li>
-          <li>Ini bantu kurangi porsi makan otomatis</li>
-          <li>Infused water boleh (lemon, timun, mint)</li>
-        </ul>
+    <div class="budget-panel active" id="w2-hemat">
+      <div class="phase-banner"><div class="phase-dot" style="background:var(--sage)"></div><span class="phase-title">Ubi rebus / singkong → pengganti nasi yang murah dan mengenyangkan</span></div>
+      <div class="card-grid">
+        <div class="card">
+          <span class="card-tag tag-sage">Karbo Hemat Sehat</span>
+          <p class="card-title">Pengganti Nasi Murah</p>
+          <ul class="card-list">
+            <li>Ubi jalar rebus / kukus — sangat murah</li>
+            <li>Singkong rebus — Rp 2–3rb/porsi</li>
+            <li>Jagung rebus — manis alami, anak suka</li>
+            <li>Oatmeal untuk sarapan tetap pilihan terbaik</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="card-tag tag-amber">Protein Minggu 3</span>
+          <p class="card-title">Tetap Murah, Lebih Variatif</p>
+          <ul class="card-list">
+            <li>Teri nasi → protein murah dan tinggi kalsium</li>
+            <li>Telur puyuh rebus → variasi untuk anak</li>
+            <li>Tempe mendoan → goreng tipis, no tepung tebal</li>
+            <li>Tahu isi sayur kukus → mengenyangkan</li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <div class="callout callout-plum" style="margin-top:10px">
-      <strong>Catatan Ramadan / Puasa:</strong> Pola ini sangat kompatibel. Sahur = protein besar (telur + ayam + susu). Buka puasa = jangan langsung nasi besar. Mulai dari kurma + air + protein kecil, baru makan utama 30 menit kemudian.
+    <div class="budget-panel" id="w2-menengah">
+      <div class="card-grid">
+        <div class="card">
+          <span class="card-tag tag-amber">Karbo Upgrade</span>
+          <p class="card-title">Transisi ke Nasi Merah</p>
+          <ul class="card-list">
+            <li>Campur nasi putih + nasi merah 50:50 dulu</li>
+            <li>Atau langsung nasi merah full — terserah selera</li>
+            <li>Roti gandum murni untuk sarapan</li>
+            <li>Ubi jalar panggang untuk variasi malam</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="card-tag tag-sage">Menu Baru Minggu 3</span>
+          <p class="card-title">Tambahan Variasi</p>
+          <ul class="card-list">
+            <li>Salmon teriyaki no gula (kecap asin + madu sedikit)</li>
+            <li>Ayam geprek tanpa gorengan (panggang + sambel)</li>
+            <li>Tumis daging sapi brokoli saus tiram</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="budget-panel" id="w2-leluasa">
+      <div class="card-grid">
+        <div class="card">
+          <span class="card-tag tag-blue">Superfood Masuk</span>
+          <p class="card-title">Tambahan Bahan Premium</p>
+          <ul class="card-list">
+            <li>Alpukat sebagai lemak sehat harian</li>
+            <li>Quinoa sebagai pengganti nasi 2x seminggu</li>
+            <li>Greek yogurt untuk sarapan atau snack</li>
+            <li>Kefir untuk probiotik</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="card-tag tag-sage">Keluarga Happy</span>
+          <p class="card-title">Menu Favorit Tetap Ada</p>
+          <ul class="card-list">
+            <li>Rendang daging sapi (porsi kecil untuk diet)</li>
+            <li>Nasi goreng spesial (versi ubi goreng untuk diet)</li>
+            <li>Pizza topping sayur + mozzarella tipis (weekend treat)</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- MINGGU 4+ -->
+  <!-- ── MINGGU 4+ ── -->
   <div class="week-panel" id="diet-w3">
     <div class="progress-row">
-      <span class="phase-pill" style="background:var(--coral-light);color:var(--coral);">Fase 4 · Lifestyle</span>
+      <span class="progress-pill" style="background:var(--coral-pale);color:var(--coral);">Fase 4 · Lifestyle</span>
       <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
     </div>
-    <div class="callout callout-sage" style="margin-bottom:1rem">
-      <strong>Minggu 4+ = ini bukan diet lagi, ini gaya hidup.</strong> Sudah tidak perlu hitung-hitungan ketat. Prinsip sudah jadi otomatis.
+    <div class="callout callout-sage">
+      <strong>Minggu 4+</strong> — Ini sudah bukan diet, ini gaya hidup. Prinsip sudah otomatis. Tidak perlu hitung-hitung ketat. Sesekali makan bebas tidak masalah — yang penting konsisten dalam jangka panjang.
     </div>
-
-    <p class="phase-label">Pola Tetap yang Dipertahankan</p>
-    <div class="opts">
-      <div class="opt-card">
-        <span class="opt-tag tag-a">Selalu</span>
-        <p class="opt-title">Tidak Pernah Ditinggal</p>
-        <ul class="opt-list">
+    <div class="card-grid">
+      <div class="card">
+        <span class="card-tag tag-sage">Tetap Dijaga</span>
+        <p class="card-title">Tidak Pernah Ditinggal</p>
+        <ul class="card-list">
           <li>Protein di setiap waktu makan</li>
           <li>Air putih min. 2 liter/hari</li>
           <li>Makan malam selesai jam 20.00</li>
           <li>1 Protein Day per minggu</li>
+          <li>Sayur dan buah setiap hari</li>
         </ul>
       </div>
-      <div class="opt-card">
-        <span class="opt-tag tag-b">Fleksibel</span>
-        <p class="opt-title">Boleh Dikompromikan</p>
-        <ul class="opt-list">
-          <li>Makan nasi saat kondangan / acara keluarga — no guilt</li>
-          <li>Snack manis sesekali oke</li>
-          <li>Skip olahraga kalau anak sakit</li>
-          <li>Cheat meal 1x/minggu tidak masalah</li>
+      <div class="card">
+        <span class="card-tag tag-amber">Boleh Fleksibel</span>
+        <p class="card-title">Tidak Perlu Sempurna</p>
+        <ul class="card-list">
+          <li>Makan nasi saat kondangan → no guilt</li>
+          <li>Cheat meal 1x seminggu oke</li>
+          <li>Skip olahraga sesekali → lanjut lagi besok</li>
+          <li>Traveling / liburan → makan nikmati, kembali normal setelah</li>
         </ul>
       </div>
-      <div class="opt-card">
-        <span class="opt-tag tag-c">Ekspektasi</span>
-        <p class="opt-title">Hasil Realistis</p>
-        <ul class="opt-list">
-          <li>Bulan 1: -1 hingga -2 kg, perut lebih kempes</li>
-          <li>Bulan 2: -2 hingga -3 kg, energi lebih stabil</li>
-          <li>Bulan 3: -3 hingga -5 kg, kulit lebih cerah</li>
-          <li>Tidak yo-yo karena bukan diet ekstrem</li>
+      <div class="card">
+        <span class="card-tag tag-blue">Ekspektasi Realistis</span>
+        <p class="card-title">Hasil yang Wajar</p>
+        <ul class="card-list">
+          <li>Bulan 1: -1–2 kg, perut lebih kempes</li>
+          <li>Bulan 2: -2–3 kg, energi lebih stabil</li>
+          <li>Bulan 3+: -3–5 kg total, tidak yo-yo</li>
+          <li>Yang bertahan = yang tidak menyiksa</li>
         </ul>
       </div>
     </div>
   </div>
 
-  <!-- ATURAN UMUM -->
+  <!-- ── ATURAN UMUM ── -->
   <div class="week-panel" id="diet-w4">
     <p class="phase-label">3 Aturan Emas</p>
-    <div class="opts" style="margin-bottom:10px">
-      <div class="opt-card">
-        <span class="opt-tag tag-a">Aturan 1</span>
-        <p class="opt-title">Protein Dulu</p>
-        <ul class="opt-list">
+    <div class="card-grid">
+      <div class="card">
+        <span class="card-tag tag-sage">Aturan 1</span>
+        <p class="card-title">Protein Dulu</p>
+        <ul class="card-list">
           <li>Setiap makan, ambil protein dulu</li>
-          <li>Tunggu 5 menit, baru ambil karbohidrat</li>
-          <li>Ini ubah cara tubuh proses glukosa</li>
+          <li>Tunggu 5 menit, baru ambil nasi</li>
+          <li>Otomatis porsi nasi berkurang sendiri</li>
         </ul>
       </div>
-      <div class="opt-card">
-        <span class="opt-tag tag-b">Aturan 2</span>
-        <p class="opt-title">Piring Ideal</p>
-        <ul class="opt-list">
+      <div class="card">
+        <span class="card-tag tag-amber">Aturan 2</span>
+        <p class="card-title">Piring Ideal</p>
+        <ul class="card-list">
           <li>½ piring = sayuran</li>
-          <li>¼ piring = protein (ayam/ikan/tahu/tempe)</li>
-          <li>¼ piring = karbohidrat (nasi/ubi)</li>
+          <li>¼ piring = protein</li>
+          <li>¼ piring = karbohidrat</li>
         </ul>
       </div>
-      <div class="opt-card">
-        <span class="opt-tag tag-c">Aturan 3</span>
-        <p class="opt-title">Makan Malam Ringan</p>
-        <ul class="opt-list">
-          <li>Setelah jam 5 sore aktivitas turun</li>
-          <li>Malam = protein + sayur (no nasi kalau bisa)</li>
-          <li>Ini 1 aturan yang dampaknya paling besar</li>
+      <div class="card">
+        <span class="card-tag tag-blue">Aturan 3</span>
+        <p class="card-title">Makan Malam Ringan</p>
+        <ul class="card-list">
+          <li>Setelah sore, aktivitas turun</li>
+          <li>Malam = protein + sayur</li>
+          <li>Nasi 2–3 sdm atau skip</li>
         </ul>
       </div>
     </div>
-
-    <p class="phase-label">Yang BOLEH Bebas</p>
-    <div class="callout callout-sage">
-      <strong>Air putih</strong> kapan saja · <strong>Teh/kopi tanpa gula</strong> · <strong>Lalapan</strong> (timun, selada, tomat, kemangi) · <strong>Sayur rebus/kukus</strong> bebas porsi · <strong>Rempah & bumbu alami</strong> (bawang, jahe, kunyit, cabai, jeruk nipis)
-    </div>
-
-    <p class="phase-label" style="margin-top:1rem">Yang DIKURANGI (bukan dihapus)</p>
-    <div class="callout callout-warn">
-      <strong>Nasi putih</strong> (max 100g/makan) · <strong>Kecap manis</strong> (ganti kecap asin) · <strong>Santan</strong> (ganti susu kedelai/kelapa rendah lemak) · <strong>Gorengan</strong> (boleh 1–2x/minggu) · <strong>Minuman manis</strong> (ganti teh tawar / infused water)
-    </div>
+    <p class="phase-label" style="margin-top:1rem">Bebas Tanpa Batas</p>
+    <div class="callout callout-sage">Air putih · Teh/kopi tanpa gula · Lalapan segar · Sayur rebus/kukus · Rempah dan bumbu alami (bawang, jahe, kunyit, cabai, jeruk nipis) · Infused water</div>
+    <p class="phase-label" style="margin-top:1rem">Dikurangi, Bukan Dihapus</p>
+    <div class="callout callout-amber">Nasi putih (max 100g/makan) · Kecap manis (ganti kecap asin) · Santan (ganti susu kedelai) · Gorengan (max 2–3x/minggu) · Minuman manis · Tepung putih</div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
+<!-- ══════════════════════
      RESEP
-══════════════════════════════════════ -->
+══════════════════════ -->
 <div id="s-resep" class="section">
-  <div class="section-header">
-    <h2 class="section-title">Resep <em>Modifikasi</em></h2>
-    <p class="section-sub">Masakan Indonesia favorit yang dimodifikasi jadi diet-friendly — tetap enak, prep cepat, bisa langsung dimakan bersama keluarga.</p>
-  </div>
-
-  <div class="recipe-grid" id="recipe-list"></div>
+  <div class="section-title">Resep <em>Keluarga</em></div>
+  <p class="section-sub">Semua resep bisa dinikmati seluruh keluarga termasuk anak kecil. Bumbu kuat dan familiar. Catatan khusus cara saji untuk yang sedang diet.</p>
+  <div id="recipe-list"></div>
 </div>
 
-<!-- ══════════════════════════════════════
-     EXERCISE
-══════════════════════════════════════ -->
-<div id="s-exercise" class="section">
-  <div class="section-header">
-    <h2 class="section-title">Olahraga <em>Realistis</em></h2>
-    <p class="section-sub">Dirancang untuk ibu bekerja dengan 2 anak balita. Tidak perlu gym. Semua bisa dilakukan di rumah atau saat perjalanan kantor.</p>
-  </div>
+<!-- ══════════════════════
+     OLAHRAGA
+══════════════════════ -->
+<div id="s-olahraga" class="section">
+  <div class="section-title">Gerak <em>Konsisten</em></div>
+  <p class="section-sub">Tidak perlu gym. Tidak perlu jam panjang. Yang penting konsisten dan tidak menyiksa tubuh.</p>
 
   <div class="week-tabs">
-    <button class="week-tab active" onclick="showWeek('ex',0,this)">Minggu 1–2</button>
-    <button class="week-tab" onclick="showWeek('ex',1,this)">Minggu 3–4</button>
-    <button class="week-tab" onclick="showWeek('ex',2,this)">Bulan 2+</button>
-    <button class="week-tab" onclick="showWeek('ex',3,this)">Tips</button>
+    <button class="week-tab active" onclick="showExWeek(0, this)">Minggu 1–2</button>
+    <button class="week-tab" onclick="showExWeek(1, this)">Minggu 3–4</button>
+    <button class="week-tab" onclick="showExWeek(2, this)">Bulan 2+</button>
+    <button class="week-tab" onclick="showExWeek(3, this)">Tips</button>
   </div>
 
-  <!-- EX W1 -->
   <div class="week-panel active" id="ex-w0">
-    <div class="callout callout-sage" style="margin-bottom:1rem">
-      <strong>Minggu 1–2 = bangun habit gerak.</strong> Target: 4–5x seminggu, 20–25 menit. Tidak perlu langsung intense. Yang penting konsisten.
-    </div>
-
-    <p class="phase-label">Jadwal Mingguan</p>
+    <div class="callout callout-sage"><strong>Minggu 1–2</strong> — Bangun habit gerak dulu. 4–5x seminggu, 20–25 menit. Konsisten lebih penting dari intensitas.</div>
     <div class="week-overview">
       <div class="day-dot active-day"><div class="day-dot-label">SEN</div><div class="day-dot-icon">🚶</div><div class="day-dot-type">Jalan</div></div>
       <div class="day-dot active-day"><div class="day-dot-label">SEL</div><div class="day-dot-icon">💪</div><div class="day-dot-type">Rumah</div></div>
@@ -979,42 +1316,29 @@ body {
       <div class="day-dot"><div class="day-dot-label">SAB</div><div class="day-dot-icon">😴</div><div class="day-dot-type">Istirahat</div></div>
       <div class="day-dot active-day"><div class="day-dot-label">MIN</div><div class="day-dot-icon">🚶</div><div class="day-dot-type">Jalan</div></div>
     </div>
-
     <div class="ex-card">
-      <div class="ex-head">
-        <div class="ex-icon">🚶</div>
-        <div class="ex-name">Hari Jalan Kaki</div>
-        <span class="ex-dur" style="background:var(--sage-pale);color:var(--sage);">20–25 menit</span>
-      </div>
+      <div class="ex-head"><div class="ex-icon">🚶</div><div class="ex-name">Hari Jalan Kaki</div><span class="ex-dur" style="background:var(--sage-pale);color:var(--sage);">20–25 mnt</span></div>
       <ul class="ex-items">
-        <li><div class="ex-time">Pagi</div><div class="ex-detail"><div class="ex-act">Jalan dari/ke parkiran / halte</div><div class="ex-desc">Sengaja parkir lebih jauh atau turun 1 halte lebih awal. Jalan agak cepat.</div></div></li>
-        <li><div class="ex-time">Siang</div><div class="ex-detail"><div class="ex-act">Jalan 10 menit saat jam makan</div><div class="ex-desc">Keliling area kantor atau jalan ke warung yang lebih jauh. No scroll HP.</div></div></li>
-        <li><div class="ex-time">Malam</div><div class="ex-detail"><div class="ex-act">Jalan santai bareng anak</div><div class="ex-desc">Sambil antar anak main sore. Tetap gerak meskipun pelan.</div></div></li>
+        <li><div class="ex-time">Pagi</div><div><div class="ex-act">Parkir lebih jauh atau turun 1 halte lebih awal</div><div class="ex-desc">Jalan cepat, bukan santai. Target: sedikit berkeringat.</div></div></li>
+        <li><div class="ex-time">Siang</div><div><div class="ex-act">10 menit jalan saat jam makan</div><div class="ex-desc">Keliling area, tidak perlu tujuan khusus. No scroll HP.</div></div></li>
+        <li><div class="ex-time">Sore</div><div><div class="ex-act">Jalan sore sambil antar anak main</div><div class="ex-desc">Gerak tetap dihitung meski pelan. Double: olahraga + quality time.</div></div></li>
       </ul>
     </div>
-
     <div class="ex-card">
-      <div class="ex-head">
-        <div class="ex-icon">💪</div>
-        <div class="ex-name">Latihan Rumah (Bodyweight)</div>
-        <span class="ex-dur" style="background:var(--blue-light);color:var(--blue);">20 menit</span>
-      </div>
+      <div class="ex-head"><div class="ex-icon">💪</div><div class="ex-name">Latihan Rumah — Bodyweight</div><span class="ex-dur" style="background:var(--blue-pale);color:var(--blue);">20 mnt</span></div>
       <ul class="ex-items">
-        <li><div class="ex-time">5 mnt</div><div class="ex-detail"><div class="ex-act">Pemanasan</div><div class="ex-desc">Jalan di tempat + putar bahu + side bend. Bisa sambil nemenin anak main.</div></div></li>
-        <li><div class="ex-time">3 mnt</div><div class="ex-detail"><div class="ex-act">Squat 3×10</div><div class="ex-desc">Bayangkan mau duduk di kursi. Lutut tidak melebihi ujung kaki.</div></div></li>
-        <li><div class="ex-time">3 mnt</div><div class="ex-detail"><div class="ex-act">Push-up dinding 3×10</div><div class="ex-desc">Push-up bersandar ke dinding — lebih mudah dari lantai, tapi efektif untuk pemula.</div></div></li>
-        <li><div class="ex-time">3 mnt</div><div class="ex-detail"><div class="ex-act">Plank 3×20 detik</div><div class="ex-desc">Fokus perut dikencangkan. Mulai dari 15 detik kalau belum kuat.</div></div></li>
-        <li><div class="ex-time">3 mnt</div><div class="ex-detail"><div class="ex-act">Glute bridge 3×12</div><div class="ex-desc">Berbaring, angkat pinggul. Bagus untuk core dan pinggang post-partum.</div></div></li>
-        <li><div class="ex-time">3 mnt</div><div class="ex-detail"><div class="ex-act">Pendinginan + stretching</div><div class="ex-desc">Child's pose, cat-cow, stretch leher & bahu.</div></div></li>
+        <li><div class="ex-time">5 mnt</div><div><div class="ex-act">Pemanasan</div><div class="ex-desc">Jalan di tempat + putar bahu + side bend.</div></div></li>
+        <li><div class="ex-time">3 mnt</div><div><div class="ex-act">Squat 3×10</div><div class="ex-desc">Perlahan, lutut tidak melebihi ujung kaki.</div></div></li>
+        <li><div class="ex-time">3 mnt</div><div><div class="ex-act">Push-up dinding 3×10</div><div class="ex-desc">Lebih mudah dari lantai, tapi efektif untuk pemula.</div></div></li>
+        <li><div class="ex-time">3 mnt</div><div><div class="ex-act">Plank 3×20 detik</div><div class="ex-desc">Core dikencangkan. Mulai 15 detik kalau belum kuat.</div></div></li>
+        <li><div class="ex-time">3 mnt</div><div><div class="ex-act">Glute bridge 3×12</div><div class="ex-desc">Berbaring, angkat pinggul. Bagus untuk core dan pinggang.</div></div></li>
+        <li><div class="ex-time">3 mnt</div><div><div class="ex-act">Stretching</div><div class="ex-desc">Child's pose, cat-cow, stretch leher dan bahu.</div></div></li>
       </ul>
     </div>
   </div>
 
-  <!-- EX W3 -->
   <div class="week-panel" id="ex-w1">
-    <div class="callout callout-sage" style="margin-bottom:1rem">
-      <strong>Minggu 3–4 = tambah durasi & intensitas sedikit.</strong> Dari 20 menit jadi 30 menit. Jalan kaki mulai ada yang jadi jogging ringan.
-    </div>
+    <div class="callout callout-sage"><strong>Minggu 3–4</strong> — Tambah durasi jadi 30 menit. Mulai ada jogging ringan di hari jalan kaki.</div>
     <div class="week-overview">
       <div class="day-dot active-day"><div class="day-dot-label">SEN</div><div class="day-dot-icon">🏃</div><div class="day-dot-type">Jogging</div></div>
       <div class="day-dot active-day"><div class="day-dot-label">SEL</div><div class="day-dot-icon">💪</div><div class="day-dot-type">Rumah</div></div>
@@ -1025,171 +1349,154 @@ body {
       <div class="day-dot"><div class="day-dot-label">MIN</div><div class="day-dot-icon">😴</div><div class="day-dot-type">Istirahat</div></div>
     </div>
     <div class="ex-card">
-      <div class="ex-head"><div class="ex-icon">🏃</div><div class="ex-name">Jogging Ringan (Interval)</div><span class="ex-dur" style="background:var(--amber-light);color:var(--amber);">25–30 menit</span></div>
+      <div class="ex-head"><div class="ex-icon">🏃</div><div class="ex-name">Jogging Interval</div><span class="ex-dur" style="background:var(--amber-pale);color:var(--amber);">25–30 mnt</span></div>
       <ul class="ex-items">
-        <li><div class="ex-time">5 mnt</div><div class="ex-detail"><div class="ex-act">Jalan cepat pemanasan</div><div class="ex-desc">Napas mulai naik, tapi masih bisa ngobrol.</div></div></li>
-        <li><div class="ex-time">15 mnt</div><div class="ex-detail"><div class="ex-act">Interval: 1 mnt jogging + 2 mnt jalan</div><div class="ex-desc">Ulang 5x. Jogging tidak perlu kencang — yang penting detak jantung naik.</div></div></li>
-        <li><div class="ex-time">5 mnt</div><div class="ex-detail"><div class="ex-act">Pendinginan jalan santai</div><div class="ex-desc">Napas normalkan. Stretch ringan betis dan paha.</div></div></li>
-      </ul>
-    </div>
-    <div class="ex-card">
-      <div class="ex-head"><div class="ex-icon">💪</div><div class="ex-name">Latihan Rumah — Level 2</div><span class="ex-dur" style="background:var(--blue-light);color:var(--blue);">30 menit</span></div>
-      <ul class="ex-items">
-        <li><div class="ex-time">5 mnt</div><div class="ex-detail"><div class="ex-act">Pemanasan dinamis</div><div class="ex-desc">Jumping jack, high knees ringan, arm circles.</div></div></li>
-        <li><div class="ex-time">5 mnt</div><div class="ex-detail"><div class="ex-act">Squat + Pulse 3×12</div><div class="ex-desc">Squat biasa, tambah pulse 2x di bawah sebelum naik.</div></div></li>
-        <li><div class="ex-time">5 mnt</div><div class="ex-detail"><div class="ex-act">Push-up lantai 3×8</div><div class="ex-desc">Mulai dari lutut kalau perlu. Fokus di dada dan trisep.</div></div></li>
-        <li><div class="ex-time">5 mnt</div><div class="ex-detail"><div class="ex-act">Plank + Hip dip 3×15</div><div class="ex-desc">Dari posisi plank, goyang pinggul kanan-kiri. Core + oblique.</div></div></li>
-        <li><div class="ex-time">5 mnt</div><div class="ex-detail"><div class="ex-act">Lunge 3×10 tiap sisi</div><div class="ex-desc">Melangkah ke depan, lutut belakang hampir menyentuh lantai.</div></div></li>
-        <li><div class="ex-time">5 mnt</div><div class="ex-detail"><div class="ex-act">Pendinginan & stretching</div><div class="ex-desc">Pigeon pose, stretch hamstring, child's pose 1 menit.</div></div></li>
+        <li><div class="ex-time">5 mnt</div><div><div class="ex-act">Jalan cepat pemanasan</div></div></li>
+        <li><div class="ex-time">15 mnt</div><div><div class="ex-act">Interval: 1 mnt jogging + 2 mnt jalan × 5</div><div class="ex-desc">Jogging tidak harus kencang — yang penting detak jantung naik.</div></div></li>
+        <li><div class="ex-time">5 mnt</div><div><div class="ex-act">Pendinginan jalan santai + stretching</div></div></li>
       </ul>
     </div>
   </div>
 
-  <!-- EX BULAN 2 -->
   <div class="week-panel" id="ex-w2">
-    <div class="callout callout-sage" style="margin-bottom:1rem">
-      <strong>Bulan 2+ = sudah konsisten, mulai bisa variasi.</strong> Bisa mulai tambah beban ringan (botol air / galon kecil), atau coba kelas online 30 menit.
-    </div>
-    <div class="opts">
-      <div class="opt-card">
-        <span class="opt-tag tag-a">Opsi A</span>
-        <p class="opt-title">Tambah Beban Ringan</p>
-        <ul class="opt-list">
-          <li>Botol air 1.5L sebagai dumbbell</li>
-          <li>Lateral raise, bicep curl, shoulder press</li>
-          <li>3 set × 12 reps tiap gerakan</li>
-          <li>Fokus lengan + bahu (area yang visible)</li>
-        </ul>
-      </div>
-      <div class="opt-card">
-        <span class="opt-tag tag-b">Opsi B</span>
-        <p class="opt-title">YouTube / Online Class</p>
-        <ul class="opt-list">
-          <li>Chloe Ting 30-day program (free)</li>
-          <li>Yoga with Adriene (fleksibel, 20–40 mnt)</li>
-          <li>Caroline Girvan (lebih intense, bulan 3+)</li>
-          <li>Pilih yang ada subtitel Indonesia</li>
-        </ul>
-      </div>
-      <div class="opt-card">
-        <span class="opt-tag tag-c">Opsi C</span>
-        <p class="opt-title">Weekend Active</p>
-        <ul class="opt-list">
-          <li>Bersepeda santai sama anak</li>
-          <li>Berenang keluarga (kalori bakar tinggi)</li>
-          <li>Jalan pagi di taman 45–60 menit</li>
-          <li>Ini juga quality time sekaligus olahraga</li>
-        </ul>
-      </div>
+    <div class="card-grid">
+      <div class="card"><span class="card-tag tag-sage">Opsi A</span><p class="card-title">Tambah Beban Ringan</p><ul class="card-list"><li>Botol air 1.5L sebagai dumbbell</li><li>Lateral raise, bicep curl, shoulder press</li><li>3 set × 12 reps tiap gerakan</li></ul></div>
+      <div class="card"><span class="card-tag tag-amber">Opsi B</span><p class="card-title">YouTube Workout</p><ul class="card-list"><li>Chloe Ting 30-day (free, efektif)</li><li>Yoga with Adriene (fleksibel)</li><li>20–30 menit, 4x seminggu</li></ul></div>
+      <div class="card"><span class="card-tag tag-blue">Opsi C</span><p class="card-title">Weekend Active Keluarga</p><ul class="card-list"><li>Bersepeda bareng anak</li><li>Berenang keluarga</li><li>Jalan pagi di taman 45 menit</li></ul></div>
     </div>
   </div>
 
-  <!-- TIPS -->
   <div class="week-panel" id="ex-w3">
-    <p class="phase-label">Tips Khusus Ibu Bekerja + 2 Balita</p>
-    <div class="opts">
-      <div class="opt-card">
-        <span class="opt-tag tag-a">Waktu</span>
-        <p class="opt-title">Kapan Bisa Olahraga?</p>
-        <ul class="opt-list">
-          <li>Paling efektif: sebelum anak bangun (05.30–06.00)</li>
-          <li>Alternatif: saat anak tidur siang akhir pekan</li>
-          <li>Darurat: 10 menit squat + plank sebelum mandi</li>
-          <li>10 menit tiap hari > 1 jam seminggu sekali</li>
-        </ul>
-      </div>
-      <div class="opt-card">
-        <span class="opt-tag tag-b">Motivasi</span>
-        <p class="opt-title">Supaya Tidak Berhenti</p>
-        <ul class="opt-list">
-          <li>Pakai baju olahraga begitu bangun (mental trigger)</li>
-          <li>Track di kalender — jangan putus 2 hari berturut</li>
-          <li>Ajak anak ikut — mereka suka jadi "instruktur"</li>
-          <li>Progress foto tiap 2 minggu, bukan timbangan</li>
-        </ul>
-      </div>
-      <div class="opt-card">
-        <span class="opt-tag tag-c">Tubuh</span>
-        <p class="opt-title">Dengarkan Sinyal Tubuh</p>
-        <ul class="opt-list">
-          <li>Siklus haid: kurangi intensitas 2–3 hari pertama</li>
-          <li>Anak sakit / tidak tidur baik: prioritas istirahat</li>
-          <li>Nyeri (bukan pegal): stop dan istirahat</li>
-          <li>Pegal normal setelah latihan baru: itu bagus</li>
-        </ul>
-      </div>
+    <div class="tips-grid">
+      <div class="tip-card"><div class="tip-icon">⏰</div><div class="tip-title">Waktu Terbaik</div><div class="tip-body">Sebelum anak bangun (05.30–06.00) paling efektif. Alternatif: saat anak tidur siang akhir pekan. Darurat: 10 menit squat + plank sebelum mandi.</div></div>
+      <div class="tip-card"><div class="tip-icon">🔥</div><div class="tip-title">Supaya Tidak Berhenti</div><div class="tip-body">Pakai baju olahraga begitu bangun. Track di kalender — jangan putus 2 hari berturut. Progress foto tiap 2 minggu, bukan timbangan.</div></div>
+      <div class="tip-card"><div class="tip-icon">💧</div><div class="tip-title">Hidrasi Olahraga</div><div class="tip-body">Minum 1 gelas sebelum mulai. Minum lagi setiap 10 menit selama latihan. Setelah selesai, minum 2 gelas. Total hari olahraga: min. 2.5 liter.</div></div>
+      <div class="tip-card"><div class="tip-icon">🧘</div><div class="tip-title">Dengarkan Tubuh</div><div class="tip-body">Pegal setelah latihan baru: normal dan bagus. Nyeri tajam: stop dan istirahat. Terlalu lelah: kurangi intensitas, bukan frekuensi.</div></div>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
+<!-- ══════════════════════
      GROCERY
-══════════════════════════════════════ -->
+══════════════════════ -->
 <div id="s-grocery" class="section">
-  <div class="section-header">
-    <h2 class="section-title">Grocery <em>List</em></h2>
-    <p class="section-sub">Daftar belanja per minggu. Centang yang sudah dibeli. Dibuat seluas mungkin — pilih sesuai ketersediaan & budget.</p>
+  <div class="section-title">Grocery <em>List</em></div>
+  <p class="section-sub">Daftar belanja per minggu. Centang yang sudah dibeli. Pilih sesuai budget yang kamu set di Diet Plan.</p>
+
+  <div class="gr-week-tabs">
+    <button class="gr-week-tab active" onclick="showGrWeek(0, this)">Minggu 1</button>
+    <button class="gr-week-tab" onclick="showGrWeek(1, this)">Minggu 2</button>
+    <button class="gr-week-tab" onclick="showGrWeek(2, this)">Minggu 3–4</button>
   </div>
 
-  <div class="week-tabs">
-    <button class="week-tab active" onclick="showWeek('gr',0,this)">Minggu 1</button>
-    <button class="week-tab" onclick="showWeek('gr',1,this)">Minggu 2</button>
-    <button class="week-tab" onclick="showWeek('gr',2,this)">Minggu 3–4</button>
-  </div>
-
-  <div class="week-panel active" id="gr-w0">
+  <div class="gr-week-panel active" id="gr-w0">
     <div class="grocery-progress">
       <span style="font-size:12px;color:var(--text-muted);font-weight:500;">Progres belanja</span>
       <div class="gp-track"><div class="gp-fill" id="gp-fill-0" style="width:0%"></div></div>
       <span class="gp-label" id="gp-label-0">0 / 0</span>
     </div>
     <div id="grocery-0"></div>
-    <div class="btn-row">
-      <button class="outline-btn" onclick="resetWeek(0)">↺ Reset Minggu 1</button>
-    </div>
+    <div class="btn-row"><button class="outline-btn" onclick="resetGrocery(0)">↺ Reset Minggu 1</button></div>
   </div>
 
-  <div class="week-panel" id="gr-w1">
+  <div class="gr-week-panel" id="gr-w1">
     <div class="grocery-progress">
       <span style="font-size:12px;color:var(--text-muted);font-weight:500;">Progres belanja</span>
       <div class="gp-track"><div class="gp-fill" id="gp-fill-1" style="width:0%"></div></div>
       <span class="gp-label" id="gp-label-1">0 / 0</span>
     </div>
     <div id="grocery-1"></div>
-    <div class="btn-row">
-      <button class="outline-btn" onclick="resetWeek(1)">↺ Reset Minggu 2</button>
-    </div>
+    <div class="btn-row"><button class="outline-btn" onclick="resetGrocery(1)">↺ Reset Minggu 2</button></div>
   </div>
 
-  <div class="week-panel" id="gr-w2">
+  <div class="gr-week-panel" id="gr-w2">
     <div class="grocery-progress">
       <span style="font-size:12px;color:var(--text-muted);font-weight:500;">Progres belanja</span>
       <div class="gp-track"><div class="gp-fill" id="gp-fill-2" style="width:0%"></div></div>
       <span class="gp-label" id="gp-label-2">0 / 0</span>
     </div>
     <div id="grocery-2"></div>
-    <div class="btn-row">
-      <button class="outline-btn" onclick="resetWeek(2)">↺ Reset Minggu 3–4</button>
-    </div>
+    <div class="btn-row"><button class="outline-btn" onclick="resetGrocery(2)">↺ Reset Minggu 3–4</button></div>
   </div>
 </div>
 
 </div><!-- /content -->
 
 <script>
+// ── STATE ──
+let people = 4;
+let budget = 'hemat';
+let currentWeek = 0;
+
 // ── NAVIGATION ──
-function showSection(id) {
+function showSection(id, btn) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.main-nav-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('s-'+id).classList.add('active');
-  event.currentTarget.classList.add('active');
+  document.getElementById('s-' + id).classList.add('active');
+  btn.classList.add('active');
 }
-function showWeek(prefix, idx, btn) {
-  const panels = document.querySelectorAll('[id^="'+prefix+'-w"]');
-  panels.forEach(p => p.classList.remove('active'));
-  document.getElementById(prefix+'-w'+idx).classList.add('active');
+
+function showWeek(idx, btn) {
+  currentWeek = idx;
+  document.querySelectorAll('[id^="diet-w"]').forEach(p => p.classList.remove('active'));
+  document.getElementById('diet-w' + idx).classList.add('active');
   btn.closest('.week-tabs').querySelectorAll('.week-tab').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
+  // show budget panel for this week
+  showBudgetPanels(idx);
+}
+
+function showExWeek(idx, btn) {
+  document.querySelectorAll('[id^="ex-w"]').forEach(p => p.classList.remove('active'));
+  document.getElementById('ex-w' + idx).classList.add('active');
+  btn.closest('.week-tabs').querySelectorAll('.week-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function showGrWeek(idx, btn) {
+  document.querySelectorAll('.gr-week-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('gr-w' + idx).classList.add('active');
+  btn.closest('.gr-week-tabs').querySelectorAll('.gr-week-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ── BUDGET ──
+function changePeople(delta) {
+  people = Math.max(1, Math.min(12, people + delta));
+  document.getElementById('people-count').textContent = people;
+  updateBudgetTotals();
+}
+
+function setBudget(tier, btn) {
+  budget = tier;
+  document.querySelectorAll('.budget-tier').forEach(b => {
+    b.classList.remove('active-hemat', 'active-menengah', 'active-leluasa');
+  });
+  btn.classList.add('active-' + tier);
+  showBudgetPanels(currentWeek);
+}
+
+function updateBudgetTotals() {
+  const ranges = {
+    hemat: [15, 20],
+    menengah: [25, 40],
+    leluasa: [45, 65]
+  };
+  Object.keys(ranges).forEach(tier => {
+    const [lo, hi] = ranges[tier];
+    const totalLo = (lo * people).toLocaleString('id');
+    const totalHi = (hi * people).toLocaleString('id');
+    document.getElementById('total-' + tier).textContent = `Total: Rp ${totalLo}–${totalHi}rb/hari`;
+  });
+}
+
+function showBudgetPanels(weekIdx) {
+  // hide all budget panels in the active week
+  const week = document.getElementById('diet-w' + weekIdx);
+  if (!week) return;
+  week.querySelectorAll('.budget-panel').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById('w' + weekIdx + '-' + budget);
+  if (target) target.classList.add('active');
 }
 
 // ── RECIPES ──
@@ -1197,248 +1504,196 @@ const recipes = [
   {
     emoji: '🍗',
     name: 'Ayam Bakar Bumbu Merah',
-    badges: [{ label: 'Makan Siang/Malam', color: 'tag-a' }, { label: '30 mnt', color: 'tag-b' }],
-    original: 'Biasanya: kecap manis banyak + minyak goreng berlimpah.',
+    badges: [{ label: 'Semua Budget', color: 'tag-sage' }, { label: 'Family-Friendly', color: 'tag-amber' }, { label: '30 mnt', color: 'tag-blue' }],
     ingredients: [
-      'Dada/paha ayam tanpa kulit 300g',
-      'Bawang merah 5 siung, haluskan',
-      'Bawang putih 4 siung, haluskan',
-      'Cabai merah 3 buah (sesuai selera)',
-      'Tomat 1 buah, haluskan',
-      'Kunyit 1 cm, jahe 1 cm',
-      'Kecap asin 1 sdm (ganti kecap manis)',
-      'Garam, merica, air perasan jeruk nipis',
-      'Minyak kelapa / olive oil 1/2 sdt',
+      'Ayam 1 ekor / dada 4 potong',
+      'Bawang merah 6 siung + bawang putih 5 siung, haluskan',
+      'Tomat 2 buah, haluskan',
+      'Cabai merah 4 buah (kurangi untuk anak)',
+      'Kunyit 1 cm + jahe 1 cm',
+      'Kecap asin 1 sdm',
+      'Jeruk nipis, garam, merica',
+      'Minyak kelapa 1 sdt',
     ],
     steps: [
-      'Lumuri ayam dengan air jeruk nipis dan garam, diamkan 10 menit.',
-      'Haluskan semua bumbu: bawang merah, putih, cabai, tomat, kunyit, jahe.',
-      'Tumis bumbu dengan 1/2 sdt minyak di pan anti lengket, masak 3 menit hingga harum.',
-      'Masukkan ayam, aduk rata dengan bumbu.',
-      'Panggang di oven 180°C selama 20 menit, atau di wajan anti lengket + tutup selama 15 menit, balik sekali.',
-      'Sajikan dengan lalapan dan sambal tomat.',
+      'Lumuri ayam dengan air jeruk nipis + garam. Diamkan 10 menit.',
+      'Haluskan semua bumbu. Tumis dengan 1 sdt minyak hingga harum.',
+      'Masukkan ayam, aduk rata dengan bumbu. Beri sedikit air.',
+      'Masak tertutup api kecil 20 menit. Balik sesekali.',
+      'Panggang sebentar di atas bara / wajan anti lengket hingga sedikit gosong harum.',
+      'Sajikan dengan lalapan dan sambal.',
+    ],
+    family: [
+      'Untuk anak: kurangi atau hilangkan cabai dari bumbu anak, tambahkan ke sambal terpisah',
+      'Ibu diet: ambil bagian dada, buang kulit sebelum dimakan',
+      'Satu masak cukup untuk semua — bedakan hanya di porsi nasi',
     ],
     mods: [
-      'Kecap manis → kecap asin (kalori lebih rendah, rasa lebih asin-gurih)',
-      'Minyak goreng banyak → minyak 1/2 sdt saja di pan anti lengket',
-      'Paha dengan kulit → dada / paha tanpa kulit (lemak -60%)',
-      'Panggang / wajan anti lengket → tidak digoreng',
+      'Kecap manis → kecap asin (kalori lebih rendah)',
+      'Digoreng → dipanggang / wajan anti lengket',
+      'Paha dengan kulit → dada atau paha tanpa kulit untuk yang diet',
     ]
   },
   {
-    emoji: '🥗',
-    name: 'Gado-gado Protein Tinggi',
-    badges: [{ label: 'Makan Siang', color: 'tag-a' }, { label: 'No Masak', color: 'tag-b' }],
-    original: 'Biasanya: lontong besar + saus kacang manis banyak.',
+    emoji: '🥣',
+    name: 'Soto Ayam Bening Keluarga',
+    badges: [{ label: 'Semua Budget', color: 'tag-sage' }, { label: 'Anak Suka', color: 'tag-amber' }, { label: '35 mnt', color: 'tag-blue' }],
     ingredients: [
-      'Sayur rebus: bayam, tauge, kacang panjang, wortel, kangkung',
-      'Tahu goreng 3 potong (atau tahu kukus)',
-      'Tempe kukus / rebus 3 potong',
-      'Telur rebus 2 butir',
-      'Dada ayam rebus (optional, untuk protein extra)',
-      'Kacang tanah sangrai 3 sdm',
-      'Cabai rawit 2–3 buah',
-      'Bawang putih 1 siung',
-      'Air jeruk nipis 1 sdm',
-      'Garam secukupnya, sedikit air matang',
+      'Dada ayam 3 potong (atau 1/2 ekor)',
+      'Air 1.5 liter untuk kaldu',
+      'Bawang merah 6 siung + bawang putih 5 siung',
+      'Jahe 2 cm + kunyit 2 cm (bakar sebentar)',
+      'Serai 2 batang geprek + daun salam 3 lembar + daun jeruk 5 lembar',
+      'Tomat 2 buah, belah 4',
+      'Tauge, daun bawang, seledri',
+      'Tahu putih 6 potong (bonus protein)',
+      'Bihun / soun (untuk keluarga, skip untuk diet)',
+      'Garam, merica, kaldu ayam non-MSG',
     ],
     steps: [
-      'Rebus semua sayuran secara terpisah, jangan terlalu matang. Sisihkan.',
-      'Buat saus kacang: haluskan kacang sangrai + cabai + bawang putih.',
-      'Tambahkan air sedikit demi sedikit hingga konsistensi saus kental.',
-      'Bumbui dengan garam dan air jeruk nipis. Cicipi — tidak perlu gula.',
-      'Susun sayur, tahu, tempe, telur, ayam di piring.',
-      'Siram saus kacang di atas sajian.',
-    ],
-    mods: [
-      'Lontong → skip total, atau ganti ubi rebus 1 potong kecil',
-      'Saus kacang + gula + kecap manis → saus kacang murni + jeruk nipis (no gula)',
-      'Tahu goreng → tahu kukus atau tahu goreng minyak minimal',
-      'Tambah ayam rebus untuk protein lebih tinggi',
-    ]
-  },
-  {
-    emoji: '🐟',
-    name: 'Ikan Bumbu Kuning (Diet Version)',
-    badges: [{ label: 'Makan Malam', color: 'tag-c' }, { label: '20 mnt', color: 'tag-b' }],
-    original: 'Biasanya: digoreng dalam banyak minyak, lalu ditumis bumbu + santan.',
-    ingredients: [
-      'Ikan dori / gurame / tongkol 200g',
-      'Kunyit 2 cm, jahe 1 cm, lengkuas 1 cm',
-      'Bawang merah 4 siung, bawang putih 3 siung',
-      'Cabai merah 2 buah, cabai rawit (selera)',
-      'Serai 1 batang, daun salam 2 lembar',
-      'Tomat 1 buah',
-      'Air perasan jeruk nipis',
-      'Garam, merica',
-      'Minyak kelapa 1/2 sdt',
-      'Air 100ml',
-    ],
-    steps: [
-      'Lumuri ikan dengan jeruk nipis dan garam. Diamkan 5 menit.',
-      'Haluskan: kunyit, jahe, lengkuas, bawang merah, bawang putih, cabai, tomat.',
-      'Tumis bumbu halus + serai + salam dengan 1/2 sdt minyak hingga harum.',
-      'Masukkan 100ml air, biarkan mendidih.',
-      'Masukkan ikan, masak 10 menit dengan api kecil-sedang, balik sekali.',
-      'Koreksi garam. Sajikan dengan sayur rebus dan nasi sedikit.',
-    ],
-    mods: [
-      'Digoreng → dikukus atau dipanggang sebentar sebelum dimasak bumbu',
-      'Santan → air biasa atau 2 sdm santan kental (bukan 1 kaleng)',
-      'Minyak banyak → 1/2 sdt minyak kelapa di pan anti lengket',
-    ]
-  },
-  {
-    emoji: '🥘',
-    name: 'Soto Ayam Bening Sehat',
-    badges: [{ label: 'Makan Siang/Malam', color: 'tag-a' }, { label: '35 mnt', color: 'tag-d' }],
-    original: 'Biasanya: pakai bihun/mie + banyak jeroan + minyak tumis bumbu berlimpah.',
-    ingredients: [
-      'Dada ayam tanpa kulit 2 potong',
-      'Air 1 liter untuk kaldu',
-      'Bawang merah 5 siung, bawang putih 4 siung',
-      'Jahe 2 cm, kunyit 1 cm',
-      'Serai 2 batang, daun jeruk 4 lembar',
-      'Wortel 1 buah, buncis segenggam',
-      'Tauge segar',
-      'Tomat 1 buah (belah 4)',
-      'Daun bawang + seledri',
-      'Garam, merica, kaldu ayam non MSG (optional)',
-      'Tahu putih 4 potong (tambahan protein)',
-    ],
-    steps: [
-      'Rebus ayam dalam air 1 liter, buang busa yang muncul.',
-      'Masukkan bumbu: jahe, kunyit dibakar sebentar, serai geprek, daun jeruk.',
-      'Masak dengan api kecil 20 menit hingga ayam empuk.',
-      'Angkat ayam, suwir-suwir.',
+      'Rebus ayam dalam air 1.5 liter. Buang busa yang muncul.',
+      'Masukkan jahe dan kunyit yang sudah dibakar, serai, salam, daun jeruk.',
       'Haluskan bawang merah dan putih, tumis dengan 1/2 sdt minyak hingga harum, masukkan ke kaldu.',
-      'Tambahkan wortel, buncis, tahu. Masak 5 menit lagi.',
-      'Sajikan dengan tauge, daun bawang, seledri. Nasi sedikit atau no nasi.',
+      'Masak api kecil 20 menit. Angkat ayam, suwir-suwir.',
+      'Masukkan tahu dan tomat. Masak 5 menit lagi. Koreksi garam.',
+      'Sajikan dengan tauge, daun bawang, seledri, ayam suwir, dan bihun untuk yang mau.',
+    ],
+    family: [
+      'Anak-anak: beri bihun / soun dan kerupuk. Rasa kuning kunyit yang gurih disukai semua usia',
+      'Untuk yang diet: skip bihun, perbanyak tahu dan sayuran',
+      'Buat kaldu banyak — bisa disimpan 3 hari di kulkas untuk variasi',
     ],
     mods: [
-      'Bihun/mie → skip, atau tambah tahu + sayur lebih banyak',
-      'Jeroan → skip, pakai dada ayam suwir',
-      'Minyak goreng banyak → bumbu ditumis 1/2 sdt saja atau di-blender langsung ke kaldu',
-      'MSG / vetsin → kaldu ayam alami dari rebusan',
+      'Bihun/mie → skip atau ganti shirataki untuk yang diet',
+      'Minyak banyak → 1/2 sdt saja untuk tumis bumbu',
+      'Kaldu instan banyak → kaldu alami dari rebusan ayam',
+    ]
+  },
+  {
+    emoji: '🥜',
+    name: 'Gado-gado / Pecel Protein',
+    badges: [{ label: 'Hemat', color: 'tag-sage' }, { label: 'No Masak Lama', color: 'tag-amber' }],
+    ingredients: [
+      'Sayur rebus: bayam, tauge, kacang panjang, kangkung, wortel',
+      'Tahu putih 4 potong + tempe 4 potong',
+      'Telur rebus 4 butir',
+      'Ayam suwir / udang rebus (opsional, budget menengah+)',
+      'Saus kacang: kacang tanah sangrai 100g + cabai + bawang putih + garam + jeruk nipis',
+      'Kerupuk (untuk anak / keluarga)',
+      'Lontong / nasi (sedikit untuk diet, bebas untuk keluarga)',
+    ],
+    steps: [
+      'Rebus semua sayuran terpisah. Jangan terlalu matang — masih segar.',
+      'Kukus atau goreng tipis tahu dan tempe.',
+      'Buat saus kacang: haluskan kacang + cabai + bawang putih. Tambah air sedikit, jeruk nipis, garam. Tidak perlu gula.',
+      'Susun semua bahan di piring besar.',
+      'Siram saus kacang. Sajikan segera.',
+    ],
+    family: [
+      'Anak-anak: beri lontong atau nasi, kurangi cabai di saus, tambahkan kerupuk',
+      'Yang diet: skip lontong, makan dengan sayur dan protein saja — sudah sangat mengenyangkan',
+      'Saus kacang bisa dibuat banyak, simpan di kulkas 3 hari',
+    ],
+    mods: [
+      'Saus kacang + gula + kecap manis → saus kacang murni + jeruk nipis saja',
+      'Lontong besar → skip atau 1/4 lontong saja',
+      'Tambahkan lebih banyak protein (ayam/udang) untuk yang aktif olahraga',
     ]
   },
   {
     emoji: '🍳',
-    name: 'Telur Dadar Sayur Tinggi Protein',
-    badges: [{ label: 'Sarapan/Malam', color: 'tag-b' }, { label: '10 mnt', color: 'tag-b' }],
-    original: 'Biasanya: minyak goreng banyak, telur 2 butir full.',
+    name: 'Tempe Orek Bumbu Kuat (No Gula)',
+    badges: [{ label: 'Hemat Banget', color: 'tag-sage' }, { label: 'Lauk Serbaguna', color: 'tag-amber' }, { label: '15 mnt', color: 'tag-blue' }],
     ingredients: [
-      '2 putih telur + 1 kuning telur',
-      'Wortel 1/4 buah, parut atau potong kecil',
-      'Bawang daun 1 batang, iris tipis',
-      'Tomat 1/2 buah, potong kecil',
-      'Bayam / brokoli kecil segenggam (optional)',
-      'Garam, merica, bubuk bawang putih',
-      'Minyak wijen 1/4 sdt (untuk aroma) atau skip',
-      'Pan anti lengket — wajib',
-    ],
-    steps: [
-      'Kocok telur dengan garam dan merica.',
-      'Campur semua sayuran ke dalam kocokan telur.',
-      'Panaskan pan anti lengket, oles dengan tissue minyak tipis sekali.',
-      'Tuang telur, ratakan. Masak api kecil dengan tutup pan 3 menit.',
-      'Balik dengan hati-hati, masak 1 menit lagi.',
-      'Sajikan dengan lalapan timun dan sambal.',
-    ],
-    mods: [
-      '2 telur full → 2 putih + 1 kuning (protein sama, kolesterol lebih rendah)',
-      'Minyak goreng banyak → pan anti lengket, minyak minimal',
-      'Tanpa sayur → tambah sayur untuk serat dan volume tanpa kalori',
-    ]
-  },
-  {
-    emoji: '🥬',
-    name: 'Tumis Tempe Orek Tanpa Gula',
-    badges: [{ label: 'Lauk Serbaguna', color: 'tag-e' }, { label: '15 mnt', color: 'tag-b' }],
-    original: 'Biasanya: tempe goreng + kecap manis banyak + gula jawa.',
-    ingredients: [
-      'Tempe 200g, potong dadu kecil',
-      'Bawang merah 4 siung, iris',
-      'Bawang putih 3 siung, iris',
-      'Cabai merah 2 buah + cabai rawit sesuai selera',
-      'Daun salam 2 lembar, serai 1 batang',
-      'Kecap asin 1 sdm',
-      'Air asam jawa 1 sdt (untuk rasa asam pengganti gula)',
-      'Garam secukupnya',
+      'Tempe 2 papan, potong dadu kecil',
+      'Bawang merah 5 siung + bawang putih 4 siung, iris',
+      'Cabai merah 3 buah + cabai rawit sesuai selera',
+      'Serai 1 batang geprek + daun salam 2 lembar',
+      'Kecap asin 1.5 sdm',
+      'Air asam jawa 1 sdt',
+      'Garam, sedikit air 50ml',
       'Minyak kelapa 1 sdt',
     ],
     steps: [
-      'Tempe tidak perlu digoreng — langsung dipotong dadu.',
-      'Tumis bawang merah, bawang putih, cabai, salam, serai dengan 1 sdt minyak hingga harum.',
+      'Tidak perlu goreng tempe dulu — langsung masuk wajan.',
+      'Tumis bawang merah, putih, cabai, serai, salam dengan 1 sdt minyak hingga harum.',
       'Masukkan tempe, aduk rata.',
-      'Tambahkan kecap asin dan air asam jawa. Aduk.',
-      'Tambahkan sedikit air (50ml) supaya tempe matang merata tanpa minyak banyak.',
-      'Masak hingga air menyusut dan bumbu meresap. Koreksi garam.',
+      'Tambahkan kecap asin + air asam jawa + 50ml air.',
+      'Masak sambil diaduk hingga air habis dan tempe matang merata.',
+      'Koreksi garam. Sajikan.',
+    ],
+    family: [
+      'Ini lauk yang bisa dimakan semua anggota keluarga — anak kecil pun biasanya suka rasa gurih-manisnya',
+      'Untuk anak yang tidak suka pedas: pisahkan sebelum masuk cabai rawit',
+      'Buat porsi besar, tahan di kulkas 3–4 hari',
     ],
     mods: [
-      'Tempe digoreng dulu → langsung ditumis tanpa digoreng, lebih rendah lemak',
-      'Kecap manis banyak + gula jawa → kecap asin + air asam jawa (rasa tetap kompleks)',
-      'Minyak banyak → 1 sdt minyak kelapa + tambah air',
+      'Kecap manis + gula jawa → kecap asin + air asam jawa (rasa tetap kompleks, tanpa gula ekstra)',
+      'Tempe digoreng minyak banyak → langsung ditumis minyak minimal',
     ]
   },
   {
-    emoji: '🍲',
-    name: 'Sayur Asem Bening',
-    badges: [{ label: 'Sayur Wajib', color: 'tag-b' }, { label: '25 mnt', color: 'tag-b' }],
-    original: 'Aslinya sudah relatif sehat — modifikasi minor untuk protein.',
+    emoji: '🐟',
+    name: 'Ikan Bumbu Kuning Kukus',
+    badges: [{ label: 'Semua Budget', color: 'tag-sage' }, { label: 'Anak Suka', color: 'tag-amber' }, { label: '20 mnt', color: 'tag-blue' }],
     ingredients: [
-      'Kacang tanah 3 sdm',
-      'Jagung manis 1 buah, potong',
-      'Labu siam 1/4 buah, potong kotak',
-      'Kacang panjang segenggam',
-      'Bayam 1 ikat',
-      'Melinjo segenggam (optional)',
-      'Bawang merah 4 siung, iris kasar',
-      'Bawang putih 2 siung, geprek',
-      'Cabai rawit 3 buah (optional)',
-      'Asam jawa 1 sdt, larutkan di air',
-      'Garam, sedikit gula aren (1/4 sdt saja)',
-      'Air 800ml',
-      'Tambahan protein: tahu putih 4 potong',
+      'Ikan dori / gurame / lele 500g (sesuai budget)',
+      'Kunyit 2 cm + jahe 2 cm + lengkuas 1 cm',
+      'Bawang merah 5 siung + bawang putih 4 siung',
+      'Cabai merah 3 buah (sesuai selera)',
+      'Serai 2 batang + daun jeruk 4 lembar',
+      'Tomat 1 buah',
+      'Jeruk nipis, garam, merica',
+      'Minyak 1/2 sdt',
     ],
     steps: [
-      'Didihkan air, masukkan bawang merah, bawang putih, dan kacang tanah. Rebus 5 menit.',
-      'Masukkan jagung dan labu siam, rebus 5 menit.',
-      'Masukkan kacang panjang, melinjo, cabai, dan tahu.',
-      'Tambahkan air asam jawa, garam, dan gula aren sedikit.',
-      'Terakhir masukkan bayam, masak 2 menit saja jangan terlalu lama.',
-      'Cicipi dan koreksi rasa. Sajikan hangat.',
+      'Lumuri ikan dengan jeruk nipis + garam. Diamkan 5 menit.',
+      'Haluskan kunyit, jahe, lengkuas, bawang merah, bawang putih, cabai, tomat.',
+      'Tumis bumbu + serai + daun jeruk dengan 1/2 sdt minyak hingga harum.',
+      'Tambahkan 100ml air, didihkan.',
+      'Masukkan ikan, masak 10 menit api kecil. Balik sekali.',
+      'Sajikan dengan sayur tumis dan nasi sedikit.',
+    ],
+    family: [
+      'Bumbu kuning kuat — disukai semua usia. Anak-anak biasanya suka ikan bumbu kuning',
+      'Bisa kukus ikan lele yang lebih murah untuk hari hemat, ganti salmon saat budget leluasa',
+      'Satu bumbu bisa untuk semua jenis ikan',
     ],
     mods: [
-      'Tambah tahu putih untuk protein tanpa mengubah rasa',
-      'Gula aren dikurangi jadi 1/4 sdt saja (untuk rasa seimbang)',
-      'Bisa jadi lauk utama malam dengan protein dari tahu + kacang',
+      'Digoreng dalam minyak banyak → dikukus dulu atau langsung dimasak dalam bumbu',
+      'Santan → skip total atau 2 sdm saja (bukan 1 kaleng)',
     ]
   },
   {
-    emoji: '🥛',
-    name: 'Smoothie Sarapan Cepat',
-    badges: [{ label: 'Sarapan', color: 'tag-a' }, { label: '5 mnt', color: 'tag-b' }],
-    original: 'Variasi smoothie tinggi protein untuk pagi sibuk.',
+    emoji: '🥗',
+    name: 'Sayur Asem Bening + Tahu',
+    badges: [{ label: 'Hemat', color: 'tag-sage' }, { label: 'Semua Usia', color: 'tag-amber' }, { label: '25 mnt', color: 'tag-blue' }],
     ingredients: [
-      'Susu kedelai tanpa gula 200ml',
-      'Yogurt plain tanpa gula 100ml',
-      'Pisang 1/2 buah (beku lebih baik)',
-      'Selai kacang tanpa gula 1 sdm',
-      'Oatmeal instan 2 sdm (optional, untuk kenyang)',
-      'Bubuk kayu manis 1/4 sdt',
-      'Es batu 3–4 biji (optional)',
+      'Jagung manis 2 buah, potong bulat',
+      'Labu siam 1/2 buah + kacang panjang segenggam',
+      'Bayam 1 ikat + melinjo segenggam (opsional)',
+      'Kacang tanah sangrai 3 sdm',
+      'Tahu putih 6 potong (protein)',
+      'Bawang merah 4 siung + bawang putih 2 siung, iris',
+      'Asam jawa 1 sdt + garam + sedikit gula aren (1/4 sdt)',
+      'Air 1 liter',
     ],
     steps: [
-      'Masukkan semua bahan ke blender.',
-      'Blend 30–45 detik hingga halus.',
-      'Cicipi — kalau kurang manis bisa tambah 1/4 pisang atau kurma 1 buah.',
-      'Tuang dan langsung minum sebelum berangkat kerja.',
+      'Didihkan air. Masukkan bawang, kacang tanah, jagung. Rebus 5 menit.',
+      'Masukkan labu siam + tahu. Rebus 5 menit.',
+      'Masukkan kacang panjang + melinjo.',
+      'Tambahkan asam jawa, garam, gula aren sedikit.',
+      'Terakhir masukkan bayam, masak 2 menit. Jangan terlalu lama.',
+      'Sajikan hangat.',
+    ],
+    family: [
+      'Sayur asem disukai semua usia — rasa asam manis segar cocok untuk anak-anak',
+      'Tahu membuat sup ini lebih bergizi dan mengenyangkan tanpa biaya tambahan besar',
+      'Buat porsi besar untuk makan keluarga sehari penuh',
     ],
     mods: [
-      'Susu full cream → susu kedelai tanpa gula (lebih rendah lemak jenuh)',
-      'Tambah gula/madu → pisang saja sudah cukup manis',
-      'Bisa prep malam: simpan dalam botol di kulkas, shake pagi sebelum minum',
+      'Tambah tahu untuk protein ekstra — tidak mengubah rasa sama sekali',
+      'Gula aren dikurangi jadi 1/4 sdt saja',
     ]
   },
 ];
@@ -1453,273 +1708,220 @@ function buildRecipes() {
         <div class="recipe-emoji">${r.emoji}</div>
         <div class="recipe-info">
           <div class="recipe-name">${r.name}</div>
-          <div class="recipe-tags">${r.badges.map(b=>`<span class="recipe-badge ${b.color}">${b.label}</span>`).join('')}</div>
+          <div class="recipe-tags">${r.badges.map(b => `<span class="recipe-badge ${b.color}">${b.label}</span>`).join('')}</div>
         </div>
         <div class="recipe-chevron">▾</div>
       </div>
       <div class="recipe-body">
-        <div class="callout callout-warn" style="margin-top:0;margin-bottom:0;font-size:11px;padding:8px 12px">
-          <strong>Aslinya:</strong> ${r.original}
+        <div class="recipe-section-label">Bahan-bahan</div>
+        <ul class="ing-list">${r.ingredients.map(x => `<li>${x}</li>`).join('')}</ul>
+        <div class="recipe-section-label">Cara Membuat</div>
+        <ol class="step-list">${r.steps.map(s => `<li>${s}</li>`).join('')}</ol>
+        <div class="family-box">
+          <div class="family-box-title">Cara Saji untuk Keluarga</div>
+          <ul class="family-box-list">${r.family.map(f => `<li>${f}</li>`).join('')}</ul>
         </div>
-        <div class="recipe-section-title">Bahan-bahan</div>
-        <ul class="ingredient-list">${r.ingredients.map(i=>`<li>${i}</li>`).join('')}</ul>
-        <div class="recipe-section-title">Cara Membuat</div>
-        <ol class="step-list">${r.steps.map(s=>`<li>${s}</li>`).join('')}</ol>
         <div class="mod-box">
-          <div class="mod-title">✦ Modifikasi Diet-Friendly</div>
-          <ul class="mod-list">${r.mods.map(m=>`<li>${m}</li>`).join('')}</ul>
+          <div class="mod-box-title">✦ Modifikasi Diet-Friendly</div>
+          <ul class="mod-box-list">${r.mods.map(m => `<li>${m}</li>`).join('')}</ul>
         </div>
       </div>
     `;
     container.appendChild(card);
   });
 }
+
 function toggleRecipe(i) {
-  const cards = document.querySelectorAll('.recipe-card');
-  cards[i].classList.toggle('open');
+  document.querySelectorAll('.recipe-card')[i].classList.toggle('open');
 }
 
-// ── GROCERY DATA ──
-const groceryWeeks = [
+// ── GROCERY ──
+const groceryData = [
   // Minggu 1
   [
-    {
-      cat: 'Protein Hewani', icon: '🥩', color: 'tag-c',
+    { cat: 'Protein Hewani', icon: '🥩', color: 'tag-coral',
       items: [
-        { name: 'Dada ayam', note: 'min 500g' },
-        { name: 'Paha ayam tanpa kulit', note: '300g' },
-        { name: 'Ikan dori / fillet', note: '300g' },
-        { name: 'Ikan gurame / lele', note: '2 ekor' },
-        { name: 'Ikan tongkol', note: 'alternatif lebih murah' },
-        { name: 'Udang segar', note: '200g optional' },
-        { name: 'Telur ayam', note: '1 papan (15 butir)' },
-        { name: 'Teri nasi', note: '100g, untuk lauk' },
+        { name: 'Telur ayam', note: '1 papan (15 butir) — wajib semua budget' },
+        { name: 'Dada / paha ayam', note: '500g–1kg sesuai budget' },
+        { name: 'Ikan dori / lele / gurame', note: 'pilih sesuai budget' },
+        { name: 'Ikan teri nasi', note: '200g — hemat & tinggi kalsium' },
+        { name: 'Udang segar', note: 'budget menengah ke atas' },
+        { name: 'Salmon fillet', note: 'budget leluasa, 300g' },
+        { name: 'Daging sapi has dalam', note: 'budget leluasa, 300g' },
       ]
     },
-    {
-      cat: 'Protein Nabati', icon: '🌱', color: 'tag-b',
+    { cat: 'Protein Nabati', icon: '🌱', color: 'tag-sage',
       items: [
-        { name: 'Tahu putih', note: '2 papan' },
-        { name: 'Tahu sutra', note: '1 papan' },
-        { name: 'Tempe', note: '2 papan besar' },
-        { name: 'Susu kedelai tanpa gula', note: '1L / 4 kotak kecil' },
-        { name: 'Yogurt plain', note: 'Cimory / Greenfields plain, 3–4 cup' },
-        { name: 'Susu almond tanpa gula', note: 'optional' },
+        { name: 'Tahu putih', note: '2–3 papan' },
+        { name: 'Tempe segar', note: '2–3 papan besar' },
+        { name: 'Susu kedelai tanpa gula', note: '1L atau 4 kotak kecil' },
+        { name: 'Yogurt plain', note: '3–5 cup, no gula' },
         { name: 'Kacang tanah sangrai', note: '200g, no garam' },
-        { name: 'Edamame beku', note: '200g, snack' },
-        { name: 'Kacang almond', note: '100g, snack' },
+        { name: 'Edamame', note: '200g segar/beku' },
+        { name: 'Kacang almond', note: '100g, snack sehat' },
+        { name: 'Selai kacang tanpa gula', note: '1 jar kecil' },
       ]
     },
-    {
-      cat: 'Sayuran', icon: '🥦', color: 'tag-a',
+    { cat: 'Sayuran', icon: '🥦', color: 'tag-sage',
       items: [
         { name: 'Bayam', note: '2 ikat' },
         { name: 'Kangkung', note: '2 ikat' },
         { name: 'Brokoli', note: '1 kepala' },
         { name: 'Wortel', note: '500g' },
-        { name: 'Timun', note: '4–5 buah' },
-        { name: 'Tomat', note: '6 buah' },
-        { name: 'Selada', note: '1 ikat' },
+        { name: 'Timun', note: '5 buah' },
+        { name: 'Tomat', note: '6–8 buah' },
         { name: 'Kacang panjang', note: '200g' },
-        { name: 'Tauge', note: '200g' },
+        { name: 'Tauge segar', note: '200g' },
         { name: 'Buncis', note: '200g' },
         { name: 'Labu siam', note: '1 buah' },
-        { name: 'Jagung manis', note: '2 buah' },
-        { name: 'Daun bawang', note: '1 ikat' },
-        { name: 'Seledri', note: '1 ikat' },
+        { name: 'Jagung manis', note: '3 buah' },
+        { name: 'Selada', note: '1 ikat' },
+        { name: 'Daun bawang + seledri', note: '1 ikat masing-masing' },
       ]
     },
-    {
-      cat: 'Buah', icon: '🍊', color: 'tag-d',
+    { cat: 'Buah-buahan', icon: '🍊', color: 'tag-amber',
       items: [
         { name: 'Pisang', note: '1 sisir' },
         { name: 'Jeruk', note: '4–5 buah' },
-        { name: 'Pepaya', note: '1/2 buah' },
         { name: 'Apel', note: '4 buah' },
-        { name: 'Alpukat', note: '2 buah' },
-        { name: 'Semangka', note: '1 potong' },
+        { name: 'Pepaya', note: '1/2 buah' },
+        { name: 'Alpukat', note: '2–3 buah, lemak sehat' },
         { name: 'Jeruk nipis', note: '6 buah, untuk bumbu' },
+        { name: 'Stroberi', note: 'budget menengah+, 250g' },
       ]
     },
-    {
-      cat: 'Karbohidrat Sehat', icon: '🌾', color: 'tag-e',
+    { cat: 'Karbohidrat Sehat', icon: '🌾', color: 'tag-plum',
       items: [
-        { name: 'Oatmeal instant', note: 'no gula, 500g' },
-        { name: 'Roti gandum murni', note: 'baca label: whole wheat #1' },
-        { name: 'Ubi jalar', note: '500g, alternatif nasi malam' },
-        { name: 'Singkong / talas', note: 'optional' },
+        { name: 'Oatmeal quick cook', note: 'no gula, 500g' },
+        { name: 'Roti gandum murni', note: 'cek label: whole wheat di urutan #1' },
+        { name: 'Ubi jalar', note: '500g — pengganti nasi hemat' },
+        { name: 'Beras merah', note: 'mulai bertahap Minggu 3' },
+        { name: 'Singkong / talas', note: 'alternatif hemat' },
+        { name: 'Quinoa', note: 'budget leluasa, 250g' },
       ]
     },
-    {
-      cat: 'Bumbu & Dapur', icon: '🧄', color: 'tag-b',
+    { cat: 'Bumbu & Dapur', icon: '🧄', color: 'tag-coral',
       items: [
         { name: 'Bawang merah', note: '500g' },
         { name: 'Bawang putih', note: '500g' },
-        { name: 'Jahe', note: '200g' },
+        { name: 'Jahe segar', note: '200g' },
         { name: 'Kunyit segar', note: '100g' },
-        { name: 'Lengkuas', note: '100g' },
         { name: 'Serai', note: '5 batang' },
-        { name: 'Daun salam', note: '1 bungkus' },
-        { name: 'Daun jeruk', note: '1 bungkus' },
-        { name: 'Cabai merah', note: '200g' },
-        { name: 'Cabai rawit', note: '100g' },
-        { name: 'Kecap asin', note: 'ganti kecap manis' },
+        { name: 'Daun salam + daun jeruk', note: '1 bungkus masing-masing' },
+        { name: 'Cabai merah + rawit', note: '200g + 100g' },
+        { name: 'Kecap asin', note: 'pengganti kecap manis' },
         { name: 'Asam jawa', note: '1 bungkus kecil' },
-        { name: 'Garam', note: 'himalayan pink / biasa' },
-        { name: 'Merica bubuk', note: '1 botol' },
-        { name: 'Minyak kelapa', note: '250ml, untuk masak' },
+        { name: 'Minyak kelapa', note: '250ml untuk masak' },
+        { name: 'Garam + merica bubuk', note: 'stok dapur' },
       ]
     },
-    {
-      cat: 'Minuman & Pelengkap', icon: '🍵', color: 'tag-a',
+    { cat: 'Minuman & Lain-lain', icon: '🍵', color: 'tag-blue',
       items: [
-        { name: 'Teh hijau', note: 'tanpa gula, beberapa sachet' },
-        { name: 'Teh hitam / teh biasa', note: 'tanpa gula' },
-        { name: 'Madu murni', note: '1 botol kecil, darurat lemas' },
-        { name: 'Kayu manis bubuk', note: '1 botol kecil' },
-        { name: 'Selai kacang tanpa gula', note: 'SAN3G / skippy no sugar' },
-        { name: 'Dark chocolate 70%+', note: 'optional, 1 bar' },
+        { name: 'Teh hijau / teh hitam', note: 'tanpa gula' },
+        { name: 'Madu murni', note: '1 botol kecil' },
+        { name: 'Kayu manis bubuk', note: 'untuk oatmeal' },
+        { name: 'Dark chocolate 70%+', note: '1 bar — darurat ngidam' },
+        { name: 'Air mineral', note: 'atau pastikan air galon cukup' },
       ]
     },
   ],
   // Minggu 2
   [
-    {
-      cat: 'Restok Protein', icon: '🥩', color: 'tag-c',
+    { cat: 'Restok Protein', icon: '🥩', color: 'tag-coral',
       items: [
-        { name: 'Dada ayam', note: '500g' },
-        { name: 'Ikan salmon / tuna', note: '200g, variasi minggu 2' },
-        { name: 'Ikan sarden kaleng', note: 'no saus, dalam air / tomat' },
         { name: 'Telur ayam', note: '1 papan lagi' },
-        { name: 'Tahu putih', note: '2 papan' },
-        { name: 'Tempe', note: '2 papan' },
+        { name: 'Dada ayam', note: '500g' },
+        { name: 'Ikan sarden kaleng (dalam air)', note: 'variasi hemat, no saus' },
+        { name: 'Tempe + tahu', note: '2 papan masing-masing' },
         { name: 'Yogurt plain', note: '4 cup' },
-        { name: 'Susu kedelai tanpa gula', note: '1L' },
-        { name: 'Kacang almond', note: '100g' },
         { name: 'Kacang mete raw', note: '100g, variasi snack' },
+        { name: 'Ikan salmon / tuna', note: 'budget menengah+' },
       ]
     },
-    {
-      cat: 'Sayuran Minggu 2', icon: '🥬', color: 'tag-b',
+    { cat: 'Sayuran Tambahan', icon: '🥬', color: 'tag-sage',
       items: [
-        { name: 'Bayam', note: '2 ikat' },
-        { name: 'Timun', note: '4 buah' },
-        { name: 'Tomat', note: '6 buah' },
-        { name: 'Brokoli', note: '1 kepala' },
-        { name: 'Kol / kubis', note: '1/4 kol, untuk lalapan' },
-        { name: 'Terong ungu', note: '2 buah, variasi' },
-        { name: 'Jamur tiram', note: '200g, protein nabati tambahan' },
+        { name: 'Bayam + kangkung', note: 'restok 2 ikat masing-masing' },
+        { name: 'Jamur tiram', note: '200g — protein nabati tambahan' },
         { name: 'Paprika merah/kuning', note: '2 buah, vitamin C' },
-        { name: 'Daun kemangi', note: '1 ikat' },
-        { name: 'Kangkung', note: '2 ikat' },
-        { name: 'Wortel', note: '300g' },
-        { name: 'Buncis', note: '200g' },
+        { name: 'Terong ungu', note: '2 buah, variasi' },
+        { name: 'Kol / kubis', note: '1/4 kepala, untuk lalapan' },
+        { name: 'Timun + tomat', note: 'restok' },
+        { name: 'Brokoli + wortel', note: 'restok' },
       ]
     },
-    {
-      cat: 'Buah Minggu 2', icon: '🍇', color: 'tag-d',
+    { cat: 'Upgrade Dapur Minggu 2', icon: '🫙', color: 'tag-amber',
       items: [
-        { name: 'Pisang', note: '1 sisir' },
-        { name: 'Stroberi', note: '250g, rendah gula' },
-        { name: 'Melon', note: '1 potong' },
-        { name: 'Pir', note: '3 buah' },
-        { name: 'Jeruk nipis', note: '5 buah' },
-        { name: 'Anggur', note: '1 sisir kecil, sesuai budget' },
-      ]
-    },
-    {
-      cat: 'Upgrade Dapur', icon: '🍶', color: 'tag-e',
-      items: [
-        { name: 'Pan anti lengket', note: 'kalau belum punya — investasi penting!' },
-        { name: 'Kaldu ayam non MSG', note: 'Masako reduced sodium / Royco' },
-        { name: 'Cuka apel', note: '1 botol kecil, salad dressing' },
+        { name: 'Kaldu ayam non-MSG', note: 'untuk sup lebih berasa' },
+        { name: 'Cuka apel', note: 'untuk salad dressing' },
         { name: 'Minyak wijen', note: 'sedikit untuk aroma' },
-        { name: 'Tepung oat', note: 'untuk variasi sarapan' },
-        { name: 'Kurma', note: '200g, snack sehat / buka puasa' },
+        { name: 'Biji chia', note: '100g, taburkan ke oatmeal' },
+        { name: 'Kurma', note: '200g — snack sehat & iron' },
+        { name: 'Granola no gula', note: 'budget menengah+' },
       ]
     },
   ],
-  // Minggu 3–4
+  // Minggu 3-4
   [
-    {
-      cat: 'Protein (Restok + Variasi)', icon: '🥩', color: 'tag-c',
+    { cat: 'Protein Variasi', icon: '🥩', color: 'tag-coral',
       items: [
-        { name: 'Dada ayam', note: '500g' },
-        { name: 'Ikan dori / salmon', note: '300g' },
-        { name: 'Cumi-cumi', note: '200g, variasi seafood' },
-        { name: 'Kerang / kerang hijau', note: '200g, option murah' },
-        { name: 'Telur ayam', note: '1 papan' },
-        { name: 'Tahu', note: '2 papan' },
-        { name: 'Tempe', note: '2 papan' },
-        { name: 'Yogurt plain', note: '4 cup' },
-        { name: 'Susu kedelai', note: '1L' },
-        { name: 'Whey protein / susu tinggi protein', note: 'optional, bulan 2+' },
+        { name: 'Semua protein minggu 1', note: 'restok sesuai kebutuhan' },
+        { name: 'Cumi-cumi segar', note: '200g, variasi seafood' },
+        { name: 'Kerang / kerang hijau', note: '200g, murah dan bergizi' },
+        { name: 'Daging sapi giling', note: 'untuk tumisan, budget menengah+' },
+        { name: 'Greek yogurt', note: 'protein 2x lipat' },
       ]
     },
-    {
-      cat: 'Sayuran Variasi', icon: '🥦', color: 'tag-b',
+    { cat: 'Karbo Upgrade', icon: '🌾', color: 'tag-plum',
       items: [
-        { name: 'Semua sayuran minggu 1', note: 'restok sesuai kebutuhan' },
-        { name: 'Asparagus', note: '200g, digoreng/kukus' },
-        { name: 'Kacang edamame segar', note: '200g' },
-        { name: 'Selada romaine', note: '1 kepala, untuk salad' },
-        { name: 'Cherry tomat', note: '200g' },
-        { name: 'Mentimun jepang', note: '2 buah' },
-        { name: 'Daun mint', note: '1 ikat, infused water' },
-        { name: 'Bok choy / pakcoy', note: '200g' },
-      ]
-    },
-    {
-      cat: 'Karbo Sehat', icon: '🌾', color: 'tag-e',
-      items: [
-        { name: 'Beras merah', note: '1kg, mulai transisi' },
-        { name: 'Quinoa', note: '250g, optional tapi bagus' },
+        { name: 'Beras merah', note: '1kg — mulai ganti dari nasi putih' },
+        { name: 'Quinoa', note: 'budget leluasa, 250g' },
+        { name: 'Oatmeal', note: 'restok' },
         { name: 'Ubi jalar', note: '500g' },
-        { name: 'Oatmeal', note: 'restok kalau habis' },
-        { name: 'Roti gandum', note: 'restok' },
         { name: 'Jagung pipil beku', note: '200g' },
       ]
     },
-    {
-      cat: 'Pelengkap & Snack Sehat', icon: '🫙', color: 'tag-a',
+    { cat: 'Sayuran & Buah Super', icon: '🥦', color: 'tag-sage',
       items: [
-        { name: 'Selai kacang tanpa gula', note: 'restok' },
-        { name: 'Kacang almond / mete', note: '200g' },
-        { name: 'Dark chocolate 85%', note: '1–2 bar' },
-        { name: 'Granola rendah gula', note: '200g, untuk sarapan variasi' },
-        { name: 'Biji chia', note: '100g, untuk pudding / minuman' },
-        { name: 'Flaxseed / biji rami', note: 'taburkan ke oatmeal' },
-        { name: 'Madu murni', note: 'restok' },
-        { name: 'Protein bar rendah gula', note: 'snack darurat di kantor' },
+        { name: 'Semua sayuran minggu 1', note: 'restok' },
+        { name: 'Asparagus', note: '200g, digoreng/kukus' },
+        { name: 'Bok choy / pakcoy', note: '200g' },
+        { name: 'Cherry tomat', note: '200g' },
+        { name: 'Daun mint', note: '1 ikat, infused water' },
+        { name: 'Alpukat', note: '3 buah' },
+        { name: 'Stroberi / blueberry', note: 'antioksidan tinggi' },
       ]
     },
-  ]
+    { cat: 'Snack Sehat', icon: '🫙', color: 'tag-amber',
+      items: [
+        { name: 'Kacang almond + mete', note: '200g total' },
+        { name: 'Dark chocolate 85%', note: '1–2 bar' },
+        { name: 'Biji bunga matahari', note: '100g, taburkan ke salad' },
+        { name: 'Flaxseed', note: '100g, taburkan ke oatmeal' },
+        { name: 'Protein bar rendah gula', note: 'snack darurat' },
+        { name: 'Selai kacang tanpa gula', note: 'restok' },
+      ]
+    },
+  ],
 ];
 
-const groceryState = [
-  groceryWeeks[0].map(cat => cat.items.map(() => false)),
-  groceryWeeks[1].map(cat => cat.items.map(() => false)),
-  groceryWeeks[2].map(cat => cat.items.map(() => false)),
-];
+const groceryState = groceryData.map(week => week.map(cat => cat.items.map(() => false)));
 
-function buildGrocery(weekIdx) {
-  const container = document.getElementById('grocery-' + weekIdx);
+function buildGrocery(idx) {
+  const container = document.getElementById('grocery-' + idx);
   container.innerHTML = '';
-  const week = groceryWeeks[weekIdx];
-  week.forEach((cat, ci) => {
+  groceryData[idx].forEach((cat, ci) => {
     const div = document.createElement('div');
     div.className = 'grocery-cat';
-    const checkedCount = groceryState[weekIdx][ci].filter(Boolean).length;
+    const checked = groceryState[idx][ci].filter(Boolean).length;
     div.innerHTML = `
       <div class="cat-header">
         <span class="cat-icon">${cat.icon}</span>
         <span class="cat-title">${cat.cat}</span>
-        <span class="cat-count ${cat.color}">${checkedCount}/${cat.items.length}</span>
+        <span class="cat-count ${cat.color}">${checked}/${cat.items.length}</span>
       </div>
       <div class="grocery-grid">
         ${cat.items.map((item, ii) => `
-          <div class="grocery-item ${groceryState[weekIdx][ci][ii] ? 'checked' : ''}"
-               onclick="toggleGrocery(${weekIdx},${ci},${ii})">
+          <div class="grocery-item ${groceryState[idx][ci][ii] ? 'checked' : ''}" onclick="toggleGrocery(${idx},${ci},${ii})">
             <div class="g-check"></div>
             <div class="g-text">
               <div class="g-name">${item.name}</div>
@@ -1731,7 +1933,7 @@ function buildGrocery(weekIdx) {
     `;
     container.appendChild(div);
   });
-  updateGroceryProgress(weekIdx);
+  updateProgress(idx);
 }
 
 function toggleGrocery(w, ci, ii) {
@@ -1739,25 +1941,28 @@ function toggleGrocery(w, ci, ii) {
   buildGrocery(w);
 }
 
-function updateGroceryProgress(w) {
-  const total = groceryWeeks[w].reduce((a, c) => a + c.items.length, 0);
+function updateProgress(w) {
+  const total = groceryData[w].reduce((a, c) => a + c.items.length, 0);
   const checked = groceryState[w].reduce((a, c) => a + c.filter(Boolean).length, 0);
   const pct = total ? Math.round(checked / total * 100) : 0;
   document.getElementById('gp-fill-' + w).style.width = pct + '%';
   document.getElementById('gp-label-' + w).textContent = checked + ' / ' + total;
 }
 
-function resetWeek(w) {
-  groceryState[w] = groceryWeeks[w].map(cat => cat.items.map(() => false));
+function resetGrocery(w) {
+  groceryState[w] = groceryData[w].map(cat => cat.items.map(() => false));
   buildGrocery(w);
 }
 
 // ── INIT ──
 document.addEventListener('DOMContentLoaded', () => {
+  updateBudgetTotals();
   buildRecipes();
   buildGrocery(0);
   buildGrocery(1);
   buildGrocery(2);
+  // default: show hemat panels for week 0
+  showBudgetPanels(0);
 });
 </script>
 </body>
